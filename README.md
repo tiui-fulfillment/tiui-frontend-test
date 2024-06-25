@@ -31,6 +31,5 @@ En esta prueba, deberás crear una aplicación web sencilla utilizando React jun
 
 ## Instrucciones
 
-1. **Clona este repositorio:**
-   ```bash
-   git clone https://github.com/tiui-fulfillment/tiui-frontend-test.git
+1. **Fork a este repositorio:**
+2. **Cuanto todo este listo, genera un PR a con tu solución**
