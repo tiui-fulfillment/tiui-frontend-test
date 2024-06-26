@@ -13,20 +13,37 @@
 ## Descripción de la Solución
  Los componentes principales son:
 
-Task: Representa una tarea individual, con opciones para marcar como completada, editar y eliminar.
-TaskList: Muestra la lista de tareas, filtradas según el estado seleccionado (todas, completadas, pendientes).
+Task: Es la funcion de marcar la tarea como , lista. Ademas de Editar y eliminarla.
+TaskList: Hace la funcion de filtrado, segun lo que necesites, Todos, Completas, pendientes.
 TaskForm: Formulario para agregar nuevas tareas.
 
-Decisiones técnicas importantes:
+Uso de Material:
 
-Uso de Material-UI: Para aplicar estilos y componentes de interfaz de usuario modernos y consistentes.
+Material-UI: Para aplicar estilos y componentes de interfaz de usuario modernos y consistentes.
 Gestión del Estado: Utilización de hooks (useState) para gestionar el estado de la lista de tareas y los filtros.
 Componentización: Dividir la funcionalidad en componentes reutilizables y manejables para mejorar la mantenibilidad y escalabilidad.
 
 ## Instrucciones para Ejecutar el Proyecto
 
-Por favor,  proporciona una breve descripción de como ejeuctar el proyecto, plus si lo tienes en el README.md 
+1. Clonar el Repositorio:
+git clone [<URL_DEL_REPOSITORIO>](https://github.com/snaty09/tiui-frontend-test)
+cd pruebatecnica
+
+2. Instalar Dependencias:
+npm install
+
+3. Iniciar app:
+npm start
+
+4. Abrir en el Navegador:
+
+La aplicación se abrirá automáticamente en http://localhost:3000.
+
 
 ## ¿Que resaltarias de tu proyecto?
 
-Por favor,  proporciona una breve descripción de que resaltarias en tu solucion.
+
+ Componentes Organizados en su respectiva carpeta y nombre que indica su uso ademas de
+ código limpio y siguiendo buenas prácticas.
+
+
