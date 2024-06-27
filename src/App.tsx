@@ -1,5 +1,7 @@
+import { Typography } from "@mui/material";
+
 function App() {
-  return <h1>EasyTask </h1>;
+  return <Typography variant="h1">EasyTask</Typography>;
 }
 
 export default App;
