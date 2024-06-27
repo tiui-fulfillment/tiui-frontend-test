@@ -9,7 +9,7 @@ export function TodosProvider({ children }: { children: ReactNode }) {
     const todo: Todo = {
       id: crypto.randomUUID() as string,
       description,
-      completed: true,
+      completed: false,
     };
     setTodos((prevTodos) => {
       return [...prevTodos, todo];

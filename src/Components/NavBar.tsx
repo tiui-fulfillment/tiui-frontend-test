@@ -1,10 +1,12 @@
 import {
+  AppBar,
   Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
   TextField,
+  Toolbar,
   Typography,
 } from "@mui/material";
 import { useState } from "react";
@@ -22,13 +24,19 @@ export default function NavBar() {
   }
 
   return (
-    <nav>
-      <Typography variant="h1">EasyTask</Typography>
-      <Button variant="contained" onClick={handleClickOpen}>
-        New ToDo
-      </Button>
+    <>
+      <AppBar color="primary" position="absolute" sx={{ p: 2 }}>
+        <Toolbar>
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+            EasyTask
+          </Typography>
+          <Button color="inherit" onClick={handleClickOpen}>
+            New ToDo
+          </Button>
+        </Toolbar>
+      </AppBar>
       <NewTodoForm open={open} onClose={handleClose} />
-    </nav>
+    </>
   );
 }
 
@@ -66,14 +74,18 @@ function NewTodoForm({ open, onClose }: NewTodoFormProps) {
           multiline
           id="description"
           name="description"
-          label="To Do"
+          label="Description"
           variant="standard"
           helperText="Please provide the description of your todo"
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Cancel</Button>
-        <Button type="submit">Create</Button>
+        <Button color="warning" onClick={onClose}>
+          Cancel
+        </Button>
+        <Button variant="contained" type="submit">
+          Create
+        </Button>
       </DialogActions>
     </Dialog>
   );
