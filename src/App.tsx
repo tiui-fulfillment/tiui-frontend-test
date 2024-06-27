@@ -1,6 +1,7 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
+import { Toaster } from 'sonner';
 import { v4 as uuidv4 } from 'uuid';
 import DialogComponent from './components/DialogComponent';
 import FilterComponent from './components/FilterComponent';
@@ -76,6 +77,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
+      <Toaster richColors theme="dark" />
       <div className="min-h-[100vh] w-full p-8 grid md:place-items-center bg-[#0F0F0F] text-neutral-200">
         <div className="bg-neutral-900 h-fit rounded-xl p-6 flex flex-col gap-4 w-full xl:w-4/6 md:w-fit md:min-w-96">
           <HeaderComponent />

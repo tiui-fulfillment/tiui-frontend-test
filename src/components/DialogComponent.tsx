@@ -14,6 +14,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import * as React from 'react';
+import { toast } from 'sonner';
 import { v4 as uuidv4 } from 'uuid';
 import { Task } from '../types/types';
 
@@ -33,7 +34,19 @@ export default function DialogComponent({ addTask }: { addTask: (task: Task) => 
     setOpen(false);
   };
 
+  const validateTask = (): boolean => {
+    if (title.trim() === '') {
+      toast.error('El título no puede estar vacío');
+      return false;
+    } else if (description.trim() === '') {
+      toast.error('La descripción no puede estar vacía');
+      return false;
+    }
+    return true;
+  };
+
   const handleAddTask = () => {
+    if (!validateTask()) return;
     const newTask: Task = {
       id: uuidv4(),
       title: title,
