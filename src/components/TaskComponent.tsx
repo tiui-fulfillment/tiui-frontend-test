@@ -60,7 +60,7 @@ export function TaskComponent({
         <div className="w-1/3 flex items-center justify-center">
           <div className="w-fit">
             <EditComponent task={task} editTask={editTask} />
-            <IconButton onClick={handleDelete} color="secondary" aria-label="delete" size="small">
+            <IconButton onClick={handleDelete} color="error" aria-label="delete" size="small">
               <Delete fontSize="inherit" />
             </IconButton>
           </div>

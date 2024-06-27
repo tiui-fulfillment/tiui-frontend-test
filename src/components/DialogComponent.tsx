@@ -102,7 +102,7 @@ export default function DialogComponent({ addTask }: { addTask: (task: Task) => 
               defaultValue="low"
               name="radio-buttons-group"
               onChange={(e) => setPriority(e.target.value as 'low' | 'medium' | 'high')}>
-              <FormControlLabel value="high" control={<Radio color="secondary" />} label="high" />
+              <FormControlLabel value="high" control={<Radio color="error" />} label="high" />
               <FormControlLabel value="medium" control={<Radio color="warning" />} label="medium" />
               <FormControlLabel value="low" control={<Radio color="success" />} label="low" />
             </RadioGroup>
