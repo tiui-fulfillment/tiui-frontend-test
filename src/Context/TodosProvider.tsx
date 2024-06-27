@@ -5,7 +5,12 @@ import { Todo } from "../types";
 export function TodosProvider({ children }: { children: ReactNode }) {
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  function addTodo(todo: Todo) {
+  function addTodo(description: string) {
+    const todo: Todo = {
+      id: crypto.randomUUID() as string,
+      description,
+      completed: true,
+    };
     setTodos((prevTodos) => {
       return [...prevTodos, todo];
     });

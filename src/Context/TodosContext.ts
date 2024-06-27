@@ -3,7 +3,7 @@ import { Todo } from "../types";
 
 type TodosContextType = {
   todos: Todo[];
-  addTodo: (todo: Todo) => void;
+  addTodo: (description: string) => void;
   deleteTodo: (id: string) => void;
   editTodo: (todo: Todo) => void;
 };
