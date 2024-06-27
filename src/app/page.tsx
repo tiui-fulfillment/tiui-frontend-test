@@ -39,6 +39,7 @@ const App = () => {
   return (
     <div className="container mt-4">
       <h1>Lista de tareas</h1>
+      <div className="">
       <AddTodo onAddTodo={handleAddTodo} />
       <TodoList
         todos={todos}
@@ -46,6 +47,8 @@ const App = () => {
         onEditTodo={handleEditTodo}
         onRemoveTodo={handleRemoveTodo}
       />
+      </div>
+
     </div>
   );
 };

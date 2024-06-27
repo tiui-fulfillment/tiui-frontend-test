@@ -1,5 +1,7 @@
-'use client'
+'use client';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faEdit, faTrash, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 interface Todo {
   text: string;
@@ -44,27 +46,36 @@ const TodoItem: React.FC<TodoItemProps> = ({ index, todo, onToggleComplete, onEd
           />
           <div>
             <button className="btn btn-success btn-sm ms-2" onClick={handleSaveEdit}>
-              Guardar
+              <FontAwesomeIcon icon={faSave} />
             </button>
             <button className="btn btn-outline-secondary btn-sm ms-2" onClick={handleCancelEdit}>
-              Cancelar
+              <FontAwesomeIcon icon={faTimes} />
             </button>
           </div>
         </>
       ) : (
         <>
-          <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-            {todo.text}
-          </span>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              checked={todo.completed}
+              onChange={() => onToggleComplete(index)}
+              id={`todo-checkbox-${index}`}
+            />
+            <label
+              className={`form-check-label ${todo.completed ? 'completed' : ''}`}
+              htmlFor={`todo-checkbox-${index}`}
+            >
+              {todo.text}
+            </label>
+          </div>
           <div>
-            <button className="btn btn-secondary btn-sm ms-2" onClick={() => onToggleComplete(index)}>
-              {todo.completed ? 'Desmarcar' : 'Completar'}
-            </button>
             <button className="btn btn-primary btn-sm ms-2" onClick={handleEdit}>
-              Editar
+              <FontAwesomeIcon icon={faEdit} />
             </button>
             <button className="btn btn-danger btn-sm ms-2" onClick={() => onRemoveTodo(index)}>
-              Borrar
+              <FontAwesomeIcon icon={faTrash} />
             </button>
           </div>
         </>

@@ -29,30 +29,30 @@ const TodoList: React.FC<TodoListProps> = ({ todos, onToggleComplete, onEditTodo
   };
 
   return (
-    <div className="container mt-4">
-      <div className="mb-3">
-        <div className="btn-group">
+    <div className="container mt-4 p-0">
+
+        <div className="btn-group rounded-0">
           <button
-            className={`btn btn-outline-primary ${filter === 'all' ? 'active' : ''}`}
+            className={`btn btn-outline-primary rounded-0 ${filter === 'all' ? 'active' : ''}`}
             onClick={() => handleFilterChange('all')}
           >
             Todas
           </button>
           <button
-            className={`btn btn-outline-success ${filter === 'completed' ? 'active' : ''}`}
+            className={`btn btn-outline-success rounded-0 ${filter === 'completed' ? 'active' : ''}`}
             onClick={() => handleFilterChange('completed')}
           >
             Completadas
           </button>
           <button
-            className={`btn btn-outline-warning ${filter === 'pending' ? 'active' : ''}`}
+            className={`btn btn-outline-warning rounded-0 ${filter === 'pending' ? 'active' : ''}`}
             onClick={() => handleFilterChange('pending')}
           >
             Pendientes
           </button>
-        </div>
+
       </div>
-      <ul className="list-group">
+      <ul className="list-group rounded-0">
         {filteredTodos.map((todo, index) => (
           <TodoItem
             key={index}
