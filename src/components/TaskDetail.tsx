@@ -8,7 +8,7 @@ type TaskDetailProps = {
 
 export default function TaskDetail({ task }: TaskDetailProps) {
 
-    const { selectTask, removeTask } = useTaskStore()
+    const { selectTask, removeTask, changeStatus } = useTaskStore()
 
     return (
         <div className="bg-light w-100 bg-opacity-75 p-2 rounded">
@@ -32,8 +32,9 @@ export default function TaskDetail({ task }: TaskDetailProps) {
                     <img
                         src="/pencil-square.svg"
                         alt="EditIcon"
+                        style={{ filter: 'invert(100%)' }}
                     />
-                    <span className="ms-2">Editar</span>
+                    <span className="ms-2 text-white">Editar</span>
                 </button>
 
                 <button
@@ -43,8 +44,21 @@ export default function TaskDetail({ task }: TaskDetailProps) {
                     <img
                         src="/trash.svg"
                         alt="DeleteIcon"
+                        style={{ filter: 'invert(100%)' }}
                     />
-                    <span className="ms-2">Eliminar</span>
+                    <span className="ms-2 text-white">Eliminar</span>
+                </button>
+
+                <button
+                    className="bg-success border-0 rounded px-3 py-1"
+                    onClick={() => changeStatus(task.id)}
+                >
+                    <img
+                        src="/escape.svg"
+                        alt="ChangeStatusIcon"
+                        style={{ filter: 'invert(100%)' }}
+                    />
+                    <span className="ms-2 text-white">Cambiar estado</span>
                 </button>
             </div>
 

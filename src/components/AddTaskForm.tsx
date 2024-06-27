@@ -55,7 +55,6 @@ export default function AddTaskForm() {
       <input
         type="submit"
         className="btn btn-primary"
-        data-bs-dismiss="modal"
         value={'Agregar Tarea'}
       />
     </form>

@@ -48,12 +48,12 @@ export default function EditTaskForm() {
     }, [taskId])
 
     const options = useMemo(() => {
-        const currentValue = values.status.toString();
-        const oppositeValue = (!values.status).toString();
+        const currentValue = values.status;
+        const oppositeValue = (!values.status);
         return (
             <>
-                <option value={currentValue}>{values.status ? 'Completada' : 'Incompleta'}</option>
-                <option value={oppositeValue}>{values.status ? 'Completada' : 'Incompleta'}</option>
+                <option value={currentValue.toString()}>{currentValue ? 'Completada' : 'Incompleta'}</option>
+                <option value={oppositeValue.toString()}>{oppositeValue ? 'Completada' : 'Incompleta'}</option>
             </>
         );
     }, [values.status]);
@@ -81,11 +81,13 @@ export default function EditTaskForm() {
                 />
             </div>
             <div className="mb-3">
+            <label htmlFor="status" className="form-label">Estado</label>
                 <select
                     name="status"
                     id="status"
                     value={values.status.toString()}
                     onChange={handleChange}
+                    className="form-control"
                 >
                     {options}
                 </select>
