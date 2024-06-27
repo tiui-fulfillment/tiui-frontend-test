@@ -21,14 +21,7 @@ const darkTheme = createTheme({
 });
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([
-    {
-      id: uuidv4(),
-      title: 'UI work',
-      description: 'Terminar la interfaz de las tareas',
-      completed: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   const [filteredTasks, setFilteredTasks] = useState<Task[]>(tasks);
 

@@ -1,4 +1,11 @@
-import { TextField } from '@mui/material';
+import {
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
+  TextField,
+} from '@mui/material';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -14,6 +21,7 @@ export default function DialogComponent({ addTask }: { addTask: (task: Task) => 
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const [title, setTitle] = React.useState('');
+  const [priority, setPriority] = React.useState<'low' | 'medium' | 'high'>('low');
   const [description, setDescription] = React.useState('');
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -31,8 +39,10 @@ export default function DialogComponent({ addTask }: { addTask: (task: Task) => 
       title: title,
       description: description,
       completed: false,
+      priority: priority,
     };
     addTask(newTask);
+    setPriority('low');
     setTitle('');
     setDescription('');
     setOpen(false);
@@ -72,6 +82,18 @@ export default function DialogComponent({ addTask }: { addTask: (task: Task) => 
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label">Prioridad</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="low"
+              name="radio-buttons-group"
+              onChange={(e) => setPriority(e.target.value as 'low' | 'medium' | 'high')}>
+              <FormControlLabel value="high" control={<Radio color="secondary" />} label="high" />
+              <FormControlLabel value="medium" control={<Radio color="warning" />} label="medium" />
+              <FormControlLabel value="low" control={<Radio color="success" />} label="low" />
+            </RadioGroup>
+          </FormControl>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>

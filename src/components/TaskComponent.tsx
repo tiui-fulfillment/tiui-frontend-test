@@ -14,7 +14,7 @@ export function TaskComponent({
   toggleTask: (id: string) => void;
   editTask: (editedTask: Task) => void;
 }) {
-  const { id, title, description, completed } = task;
+  const { id, title, description, completed, priority } = task;
 
   const handleDelete = () => {
     deleteTask(id);
@@ -24,9 +24,24 @@ export function TaskComponent({
     toggleTask(id);
   };
   const label = { inputProps: { 'aria-label': 'Checkbox completed' } };
+  let borderClass = '';
+  switch (priority) {
+    case 'high':
+      borderClass = 'border-red-500';
+      break;
+    case 'medium':
+      borderClass = 'border-yellow-500';
+      break;
+    case 'low':
+      borderClass = 'border-green-500';
+      break;
+    default:
+      borderClass = 'border-neutral-300';
+      break;
+  }
 
   return (
-    <div id={id} className="bg-neutral-800 rounded-lg p-4">
+    <div id={id} className={`bg-neutral-800 rounded-lg p-4 border-2 ${borderClass}`}>
       <div className="flex items-center justify-between">
         <div className="w-1/3">
           <Checkbox
