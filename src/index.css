@@ -1,0 +1,35 @@
+body {
+
+    color: #333;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+  }
+  
+.MuiCard-root {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .MuiCardContent-root {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .MuiTypography-h6 {
+    font-weight: bold;
+  }
+  
+  .MuiTypography-body2 {
+    word-wrap: break-word;
+  }
+  
+  .MuiButton-containedPrimary {
+    background-color: #ffeb3b;
+    color: #000;
+  }
+  
+  .MuiIconButton-root {
+    align-self: flex-end;
+  }
