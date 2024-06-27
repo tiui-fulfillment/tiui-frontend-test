@@ -35,20 +35,20 @@ const TodoItem: React.FC<TodoItemProps> = ({ index, todo, onToggleComplete, onEd
   };
 
   return (
-    <li className="list-group-item d-flex justify-content-between align-items-center">
+    <li className={`list-group-item d-flex justify-content-between align-items-center ${todo.completed ? 'bg-light text-muted' : ''}`}>
       {isEditing ? (
         <>
           <input
             type="text"
-            className="form-control"
+            className={`form-control ${todo.completed ? 'bg-light text-muted' : ''}`}
             value={editedText}
             onChange={(e) => setEditedText(e.target.value)}
           />
-          <div>
-            <button className="btn btn-success btn-sm ms-2" onClick={handleSaveEdit}>
+          <div className="d-flex">
+            <button className="btn btn-outline-secondary btn-sm ms-2 text-muted border-0" onClick={handleSaveEdit}>
               <FontAwesomeIcon icon={faSave} />
             </button>
-            <button className="btn btn-outline-secondary btn-sm ms-2" onClick={handleCancelEdit}>
+            <button className="btn btn-outline-secondary btn-sm ms-2 text-muted border-0" onClick={handleCancelEdit}>
               <FontAwesomeIcon icon={faTimes} />
             </button>
           </div>
@@ -64,17 +64,17 @@ const TodoItem: React.FC<TodoItemProps> = ({ index, todo, onToggleComplete, onEd
               id={`todo-checkbox-${index}`}
             />
             <label
-              className={`form-check-label ${todo.completed ? 'completed' : ''}`}
+              className={`form-check-label ${todo.completed ? 'text-muted' : ''}`}
               htmlFor={`todo-checkbox-${index}`}
             >
               {todo.text}
             </label>
           </div>
-          <div>
-            <button className="btn btn-primary btn-sm ms-2" onClick={handleEdit}>
+          <div className="d-flex">
+            <button className={`btn btn-outline-secondary btn-sm ms-2 text-muted border-0 ${todo.completed ? 'bg-light' : ''}`} onClick={handleEdit}>
               <FontAwesomeIcon icon={faEdit} />
             </button>
-            <button className="btn btn-danger btn-sm ms-2" onClick={() => onRemoveTodo(index)}>
+            <button className={`btn btn-outline-secondary btn-sm ms-2 text-muted border-0 ${todo.completed ? 'bg-light' : ''}`} onClick={() => onRemoveTodo(index)}>
               <FontAwesomeIcon icon={faTrash} />
             </button>
           </div>

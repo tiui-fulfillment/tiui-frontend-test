@@ -8,11 +8,15 @@ interface AddTodoProps {
 
 const AddTodo: React.FC<AddTodoProps> = ({ onAddTodo }) => {
   const [newTodo, setNewTodo] = useState('');
+  const [warning, setWarning] = useState('');
 
   const handleAdd = () => {
     if (newTodo.trim() !== '') {
       onAddTodo(newTodo);
       setNewTodo('');
+      setWarning('');
+    } else {
+      setWarning('El campo no puede estar vacío');
     }
   };
 
@@ -30,6 +34,7 @@ const AddTodo: React.FC<AddTodoProps> = ({ onAddTodo }) => {
           <FontAwesomeIcon icon={faPlus} /> {/* Plus sign icon */}
         </button>
       </div>
+      {warning && <div className="text-danger mt-2">{warning}</div>}
     </div>
   );
 };

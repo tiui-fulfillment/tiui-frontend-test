@@ -30,27 +30,25 @@ const TodoList: React.FC<TodoListProps> = ({ todos, onToggleComplete, onEditTodo
 
   return (
     <div className="container mt-4 p-0">
-
-        <div className="btn-group rounded-0">
-          <button
-            className={`btn btn-outline-primary rounded-0 ${filter === 'all' ? 'active' : ''}`}
-            onClick={() => handleFilterChange('all')}
-          >
-            Todas
-          </button>
-          <button
-            className={`btn btn-outline-success rounded-0 ${filter === 'completed' ? 'active' : ''}`}
-            onClick={() => handleFilterChange('completed')}
-          >
-            Completadas
-          </button>
-          <button
-            className={`btn btn-outline-warning rounded-0 ${filter === 'pending' ? 'active' : ''}`}
-            onClick={() => handleFilterChange('pending')}
-          >
-            Pendientes
-          </button>
-
+      <div className="btn-group rounded-0">
+        <button
+          className={`btn btn-outline-secondary rounded-0 ${filter === 'all' ? 'btn-primary text-white' : ''}`}
+          onClick={() => handleFilterChange('all')}
+        >
+          Todas
+        </button>
+        <button
+          className={`btn btn-outline-secondary rounded-0 ${filter === 'completed' ? 'btn-primary text-white' : ''}`}
+          onClick={() => handleFilterChange('completed')}
+        >
+          Completadas
+        </button>
+        <button
+          className={`btn btn-outline-secondary rounded-0 ${filter === 'pending' ? 'btn-primary text-white' : ''}`}
+          onClick={() => handleFilterChange('pending')}
+        >
+          Pendientes
+        </button>
       </div>
       <ul className="list-group rounded-0">
         {filteredTodos.map((todo, index) => (
