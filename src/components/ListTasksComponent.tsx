@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Task } from '../types/types';
+import Calendar from './Calendar';
 import DialogComponent from './DialogComponent';
 import FilterComponent from './FilterComponent';
 import HeaderComponent from './HeaderComponent';
@@ -74,6 +75,7 @@ export default function ListTasksComponent() {
   return (
     <div className="bg-neutral-900 h-fit rounded-xl p-6 flex flex-col gap-4 w-full xl:w-4/6 md:w-fit md:min-w-96">
       <HeaderComponent numberOfPendients={numberOfPendients} numberOfTasks={numberOfTasks} />
+      <Calendar />
       <FilterComponent handleFilter={handleFilter} />
       <div className="h-72 overflow-y-auto flex flex-col gap-4">
         {filteredTasks.map((task) => (
