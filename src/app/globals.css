@@ -29,4 +29,27 @@ h1, h2, h3, h4, h5, h6 {
     flex: 1 1 auto;
     overflow-y: auto;
 }
+
+.title {
+    margin-bottom: 16px;
+}
+  
+.tableContainer table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: white;
+}
+.tableContainer {
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
+
+.input {
+    max-width: 300px;
+}
+
+.button {
+    max-width: 100px;
+}
   
