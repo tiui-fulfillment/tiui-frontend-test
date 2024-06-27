@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { Task } from "../types/types";
-import DialogComponent from "./DialogComponent";
-import FilterComponent from "./FilterComponent";
-import HeaderComponent from "./HeaderComponent";
-import { TaskComponent } from "./TaskComponent";
+import { Task } from '../types/types';
+import DialogComponent from './DialogComponent';
+import FilterComponent from './FilterComponent';
+import HeaderComponent from './HeaderComponent';
+import { TaskComponent } from './TaskComponent';
 
-export default function ListTasksComponent(){
-
+export default function ListTasksComponent() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
@@ -70,22 +69,24 @@ export default function ListTasksComponent(){
   useEffect(() => {
     handleFilter('Todas');
   }, [tasks]);
-  return(
-        <div className="bg-neutral-900 h-fit rounded-xl p-6 flex flex-col gap-4 w-full xl:w-4/6 md:w-fit md:min-w-96">
-          <HeaderComponent />
-          <FilterComponent handleFilter={handleFilter} />
-          <div className="h-72 overflow-y-auto flex flex-col gap-4">
-            {filteredTasks.map((task) => (
-              <TaskComponent
-                key={task.id}
-                task={task}
-                deleteTask={deleteTask}
-                toggleTask={toggleTask}
-                editTask={editTask}
-              />
-            ))}
-          </div>
-          <DialogComponent addTask={addTask} />
-        </div>
-  )
+  const numberOfTasks = tasks.length;
+  const numberOfPendients = tasks.filter((task) => !task.completed).length;
+  return (
+    <div className="bg-neutral-900 h-fit rounded-xl p-6 flex flex-col gap-4 w-full xl:w-4/6 md:w-fit md:min-w-96">
+      <HeaderComponent numberOfPendients={numberOfPendients} numberOfTasks={numberOfTasks} />
+      <FilterComponent handleFilter={handleFilter} />
+      <div className="h-72 overflow-y-auto flex flex-col gap-4">
+        {filteredTasks.map((task) => (
+          <TaskComponent
+            key={task.id}
+            task={task}
+            deleteTask={deleteTask}
+            toggleTask={toggleTask}
+            editTask={editTask}
+          />
+        ))}
+      </div>
+      <DialogComponent addTask={addTask} />
+    </div>
+  );
 }
