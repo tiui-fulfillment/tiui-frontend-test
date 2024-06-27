@@ -41,7 +41,9 @@ export function TaskComponent({
   }
 
   return (
-    <div id={id} className={`bg-neutral-800 rounded-lg p-4 border-2 ${borderClass}`}>
+    <div
+      id={id}
+      className={`bg-neutral-800 rounded-lg animate-once animate-fade-down p-4 border-2 ${borderClass}`}>
       <div className="flex items-center justify-between">
         <div className="w-1/3">
           <Checkbox
