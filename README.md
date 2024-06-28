@@ -13,7 +13,7 @@ Por favor, haz click en el titulo de esta sección si deseas ver una versión ho
    En el root del proyecto instala las dependencias con el siguiente comando
 
 ```
-	npm run dev
+npm install
 ```
 
 3. Correr la aplicación en dev mode.
