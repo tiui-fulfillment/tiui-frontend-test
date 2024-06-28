@@ -1,11 +1,11 @@
 import {
-  Box,
   Card,
   Checkbox,
   Typography,
   Button,
   CardContent,
   CardActions,
+  Box,
 } from "@mui/material";
 import { useTodos } from "../hooks/useTodos";
 import { Todo } from "../types";
@@ -14,11 +14,12 @@ export default function TodoList() {
   const { todos } = useTodos();
 
   return (
-    <>
+    <Box component="main" sx={{ p: 2, mt: 12 }}>
+      <Typography variant="h4">To Do List</Typography>
       {todos.map((todo) => (
         <TodoCard key={todo.id} todo={todo} />
       ))}
-    </>
+    </Box>
   );
 }
 

@@ -56,8 +56,10 @@ function NewTodoForm({ open, onClose }: NewTodoFormProps) {
     addTodo(description);
     onClose();
   }
+
   return (
     <Dialog
+      disableRestoreFocus
       open={open}
       onClose={onClose}
       PaperProps={{
@@ -71,11 +73,11 @@ function NewTodoForm({ open, onClose }: NewTodoFormProps) {
           autoFocus
           margin="dense"
           required
-          multiline
           id="description"
           name="description"
           label="Description"
-          variant="standard"
+          fullWidth
+          variant="outlined"
           helperText="Please provide the description of your todo"
         />
       </DialogContent>

@@ -1,9 +1,10 @@
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import { TodosContext } from "./TodosContext";
 import { Todo } from "../types";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export function TodosProvider({ children }: { children: ReactNode }) {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useLocalStorage<Todo[]>("TODOS", []);
 
   function addTodo(description: string) {
     const todo: Todo = {
