@@ -25,7 +25,7 @@ export default function NavBar() {
 
   return (
     <>
-      <AppBar color="primary" position="absolute" sx={{ p: 2 }}>
+      <AppBar color="primary" position="fixed" sx={{ p: 2 }}>
         <Toolbar>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
             EasyTask
@@ -78,11 +78,11 @@ function NewTodoForm({ open, onClose }: NewTodoFormProps) {
           label="Description"
           fullWidth
           variant="outlined"
-          helperText="Please provide the description of your todo"
+          helperText="Please provide the description of your to do"
         />
       </DialogContent>
       <DialogActions>
-        <Button color="warning" onClick={onClose}>
+        <Button color="inherit" onClick={onClose}>
           Cancel
         </Button>
         <Button variant="contained" type="submit">
