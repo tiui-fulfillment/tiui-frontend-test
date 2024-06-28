@@ -22,7 +22,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Toaster richColors theme="dark" />
+      <Toaster position="top-right" theme="dark" />
       <div className="min-h-[100vh] w-full p-8 grid md:place-items-center bg-[#0F0F0F] text-neutral-200">
         <ListTasksComponent />
       </div>
