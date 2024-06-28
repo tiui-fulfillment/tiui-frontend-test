@@ -1,30 +1,47 @@
+import { Edit } from '@mui/icons-material';
 import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
   FormControl,
   FormControlLabel,
   FormLabel,
+  IconButton,
   Radio,
   RadioGroup,
   TextField,
 } from '@mui/material';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import * as React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { v4 as uuidv4 } from 'uuid';
-import { Task } from '../types/types';
+import { TaskContext } from '../context/TaskContext';
+import { Task } from '../types/task';
 
-export default function DialogComponent({ addTask }: { addTask: (task: Task) => void }) {
-  const [open, setOpen] = React.useState(false);
+interface TaskFormProps {
+  taskToEdit?: Task;
+}
+
+const TaskForm: React.FC<TaskFormProps> = ({ taskToEdit }) => {
+  const { addTask, editTask } = useContext(TaskContext)!;
+  const [open, setOpen] = useState(false);
   const theme = useTheme();
-  const [title, setTitle] = React.useState('');
-  const [priority, setPriority] = React.useState<'low' | 'medium' | 'high'>('low');
-  const [description, setDescription] = React.useState('');
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  const [title, setTitle] = useState(taskToEdit ? taskToEdit.title : '');
+  const [description, setDescription] = useState(taskToEdit ? taskToEdit.description : '');
+  const [priority, setPriority] = useState(taskToEdit ? taskToEdit.priority : 'low');
+
+  useEffect(() => {
+    if (taskToEdit) {
+      setTitle(taskToEdit.title);
+      setDescription(taskToEdit.description);
+      setPriority(taskToEdit.priority);
+    }
+  }, [taskToEdit]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -45,33 +62,40 @@ export default function DialogComponent({ addTask }: { addTask: (task: Task) => 
     return true;
   };
 
-  const handleAddTask = () => {
+  const handleAddOrEditTask = () => {
     if (!validateTask()) return;
-    const newTask: Task = {
-      id: uuidv4(),
-      title: title,
-      description: description,
-      completed: false,
-      priority: priority,
-    };
-    addTask(newTask);
-    setPriority('low');
+
+    if (taskToEdit) {
+      editTask({ ...taskToEdit, title, description, priority });
+    } else {
+      addTask({ id: uuidv4(), title, description, completed: false, priority });
+    }
+
     setTitle('');
     setDescription('');
-    setOpen(false);
+    setPriority('low');
+    handleClose();
   };
 
   return (
     <React.Fragment>
-      <Button className="w-full" variant="outlined" onClick={handleClickOpen}>
-        Nueva Tarea
-      </Button>
+      {taskToEdit ? (
+        <IconButton aria-label="edit" onClick={handleClickOpen} size="small">
+          <Edit fontSize="inherit" />
+        </IconButton>
+      ) : (
+        <Button className="w-full" variant="outlined" onClick={handleClickOpen}>
+          Nueva Tarea
+        </Button>
+      )}
       <Dialog
         fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title">
-        <DialogTitle id="responsive-dialog-title">{'Crear Tarea'}</DialogTitle>
+        <DialogTitle id="responsive-dialog-title">
+          {taskToEdit ? 'Editar Tarea' : 'Crear Tarea'}
+        </DialogTitle>
         <DialogContent>
           <TextField
             fullWidth
@@ -99,7 +123,7 @@ export default function DialogComponent({ addTask }: { addTask: (task: Task) => 
             <FormLabel id="demo-radio-buttons-group-label">Prioridad</FormLabel>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="low"
+              value={priority}
               name="radio-buttons-group"
               onChange={(e) => setPriority(e.target.value as 'low' | 'medium' | 'high')}>
               <FormControlLabel value="high" control={<Radio color="error" />} label="high" />
@@ -110,11 +134,13 @@ export default function DialogComponent({ addTask }: { addTask: (task: Task) => 
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>
-          <Button onClick={handleAddTask} variant="contained" color="primary">
-            Agregar
+          <Button onClick={handleAddOrEditTask} variant="contained" color="primary">
+            {taskToEdit ? 'Editar' : 'Agregar'}
           </Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
   );
-}
+};
+
+export default TaskForm;

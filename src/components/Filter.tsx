@@ -4,11 +4,7 @@ import * as React from 'react';
 
 const options = ['Todas', 'Completadas', 'Sin completar'];
 
-export default function FilterComponent({
-  handleFilter,
-}: {
-  handleFilter: (filter: string) => void;
-}) {
+export default function Filter({ handleFilter }: { handleFilter: (filter: string) => void }) {
   const [filter, setFilter] = React.useState('Todas');
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);

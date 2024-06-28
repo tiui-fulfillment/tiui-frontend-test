@@ -1,13 +1,12 @@
 import { Delete } from '@mui/icons-material';
 import { Checkbox, IconButton } from '@mui/material';
-import { Task } from '../types/types';
-import EditComponent from './EditComponent';
+import { Task } from '../types/task';
+import TaskForm from './TaskForm';
 
-export function TaskComponent({
+export function TaskItem({
   task,
   deleteTask,
   toggleTask,
-  editTask,
 }: {
   task: Task;
   deleteTask: (id: string) => void;
@@ -61,7 +60,7 @@ export function TaskComponent({
         </div>
         <div className="w-1/3 flex items-center justify-center">
           <div className="w-fit">
-            <EditComponent task={task} editTask={editTask} />
+            <TaskForm taskToEdit={task} />
             <IconButton onClick={handleDelete} color="error" aria-label="delete" size="small">
               <Delete fontSize="inherit" />
             </IconButton>

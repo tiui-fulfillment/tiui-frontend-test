@@ -3,10 +3,7 @@ type HeaderComponentProps = {
   numberOfPendients: number;
 };
 
-export default function HeaderComponent({
-  numberOfTasks,
-  numberOfPendients,
-}: HeaderComponentProps) {
+export default function Header({ numberOfTasks, numberOfPendients }: HeaderComponentProps) {
   return (
     <>
       <div className="flex justify-between items-center">

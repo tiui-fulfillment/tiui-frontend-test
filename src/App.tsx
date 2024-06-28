@@ -1,7 +1,8 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Toaster } from 'sonner';
-import ListTasksComponent from './components/ListTasksComponent';
+import TaskList from './components/TaskList';
+import { TaskProvider } from './context/TaskContext';
 
 const darkTheme = createTheme({
   palette: {
@@ -24,7 +25,9 @@ function App() {
       <CssBaseline />
       <Toaster position="top-right" theme="dark" />
       <div className="min-h-[100vh] w-full p-8 grid md:place-items-center bg-[#0F0F0F] text-neutral-200">
-        <ListTasksComponent />
+        <TaskProvider>
+          <TaskList />
+        </TaskProvider>
       </div>
     </ThemeProvider>
   );

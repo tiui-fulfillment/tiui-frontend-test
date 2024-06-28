@@ -15,7 +15,7 @@ function getWeekDates(date: Date) {
 }
 
 export default function Calendar() {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate] = useState(new Date());
   const [weekDays, setWeekDays] = useState<Date[]>([]);
 
   useEffect(() => {
