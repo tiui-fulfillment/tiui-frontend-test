@@ -2,6 +2,33 @@
 
 ¡Bienvenido a la prueba técnica para el puesto de Desarrollador Full Stack Jr en Tiui Soluciones!
 
+## [Live Demo](https://easy-task-alex-madera.netlify.app/)
+
+Por favor, haz click en el titulo de esta sección si deseas ver una versión hosteada del proyecto.
+
+## Instrucciones para Ejecutar el Proyecto
+
+1. Clonar el Repositorio.
+2. Instalar dependencias.
+   En el root del proyecto instala las dependencias con el siguiente comando
+
+```
+	npm run dev
+```
+
+3. Correr la aplicación en dev mode.
+   Una vez que las dependencias estén instaladas, puedes iniciar el servidor de desarrollo ejecutando el siguiente comando:
+
+```
+npm run dev
+```
+
+4. Acceder a la aplicación.
+   En tu navegador web abre una pestaña y navega a la siguiente dirección URL para acceder a la aplicación:
+   http://localhost:5173
+
+Después de seguir estos pasos deberías de ser capaz de ver la aplicación ejecutándose.
+
 ## Descripción
 
 En esta prueba, deberás crear una aplicación web sencilla utilizando React junto con Material-UI o Bootstrap. La aplicación será una lista de tareas (To-Do List) donde los usuarios puedan agregar, editar y eliminar tareas. Esta prueba nos permitirá evaluar tus habilidades en el desarrollo frontend, tu manejo de componentes y estilos, y tu capacidad para trabajar con tecnologías modernas.
