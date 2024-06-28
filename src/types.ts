@@ -3,3 +3,9 @@ export type Todo = {
   description: string;
   completed: boolean;
 };
+
+export enum ShowState {
+  All = "All",
+  Completed = "Completed",
+  NotCompleted = "Not Completed",
+}

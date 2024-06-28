@@ -5,12 +5,12 @@ import NavBar from "./Components/NavBar";
 
 function App() {
   return (
-    <Container>
-      <TodosProvider>
+    <TodosProvider>
+      <Container>
         <NavBar />
         <TodoList />
-      </TodosProvider>
-    </Container>
+      </Container>
+    </TodosProvider>
   );
 }
 
