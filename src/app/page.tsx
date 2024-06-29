@@ -25,20 +25,27 @@ export default function Home() {
       setTask({ ...task, error: taskError });
       return;
     }
-
+  
     const newTask = {
       id: Date.now(),
       task: task.text,
-      date: new Date().toLocaleString(),
+      date: new Date().toISOString(), // Guardar fecha en formato ISO
       isComplete: isComplete,
     };
     setTasks([newTask, ...tasks]);
     setTask({ text: '', error: '' });
     setIsComplete(false);
   };
+  
 
   const handleChangePage: OnPageChangeType = (event, page) => {
     setPage(page);
+  };
+
+  const handleToggleComplete = (taskId: number, isComplete: boolean) => {
+    setTasks(tasks.map(task =>
+      task.id === taskId ? { ...task, isComplete } : task
+    ));
   };
 
   const handleChangeRowsPerPage: onRowsPerPageChangeType = (event) => {
@@ -68,7 +75,12 @@ export default function Home() {
             onFilterChange={setFilter}
             onPageChange={handleChangePage}
           />
-          <TaskList tasks={filteredTasks} page={page} rowsPerPage={rowsPerPage} />
+          <TaskList
+            tasks={filteredTasks}
+            page={page}
+            rowsPerPage={rowsPerPage}
+            onToggleComplete={handleToggleComplete}
+          />
         </Table>
       </TableContainer>
     </Layout>

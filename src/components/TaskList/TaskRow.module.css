@@ -1,0 +1,51 @@
+.task-row {
+    height: 48px; /* Fija la altura para evitar saltos */
+  }
+  
+  .task-cell {
+    width: 100%;
+  }
+  
+  .task-date-cell {
+    position: relative;
+  }
+  
+  .task-date-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .task-date {
+    display: inline-block;
+  }
+  
+  .task-actions {
+    display: none;
+    align-items: center;
+  }
+  
+  .task-row:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .task-row:hover .task-date {
+    display: none;
+  }
+  
+  .task-row:hover .task-actions {
+    display: flex;
+  }
+  
+  .task-switch {
+    color: grey;
+  }
+  
+  .task-icon {
+    color: grey;
+  }
+  
+  .task-icon:hover {
+    color: inherit;
+  }
+  

@@ -31,7 +31,7 @@ const TableHeader: React.FC<TableHeaderProps> = ({
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox" colSpan={3}>
+        <TableCell padding="checkbox" colSpan={4}>
           <Box display="flex" justifyContent="space-between" alignItems="center">
             <Box display="flex" alignItems="center">
               <Checkbox checked={isTaskComplete} onChange={(e) => onTaskCompleteChange(e.target.checked)} />

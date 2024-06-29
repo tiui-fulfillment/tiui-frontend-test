@@ -53,3 +53,21 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100px;
 }
   
+.task-date-cell {
+    height: 45px;
+    min-width: 160px;
+}
+
+.task-actions {
+    display: none;
+}
+
+.MuiTableRow-root:hover .task-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.MuiTableRow-root:hover .task-date {
+    display: none;
+}
+  
