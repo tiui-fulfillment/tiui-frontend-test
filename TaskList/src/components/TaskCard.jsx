@@ -27,18 +27,13 @@ const TaskCard = ({ task }) => {
                 <Card.Img width={24} height={24} src='/assets/pending.svg' onClick={() => updateTask(task.id)} className='boton'></Card.Img> : <Card.Img width={24} height={24} src='/assets/complete.svg' onClick={() => updateTask(task.id)} className='boton'></Card.Img>
             }
           </Col>
-
           <Col>
             <Card.Img width={24} height={24} src='/assets/pen.svg' className='boton' onClick={() => setTaskId(task.id)}></Card.Img>
           </Col>
           <Col>
             <Card.Img width={24} height={24} src='/assets/delete.svg' className='boton' onClick={() => deleteTask(task.id)}></Card.Img>
           </Col>
-
         </Row>
-
-
-
       </Card.Body>
 
     </Card>
