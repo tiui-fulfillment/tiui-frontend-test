@@ -5,9 +5,14 @@ import './Todos.css';
 interface Props {
   todoList: TodoList;
   changeStatus: (id: string) => void;
+  updateTodo: (value: string, id: string) => void;
 }
 
-export const Todos: React.FC<Props> = ({ todoList, changeStatus }) => {
+export const Todos: React.FC<Props> = ({
+  todoList,
+  changeStatus,
+  updateTodo
+}) => {
   return (
     <div className='container-todos'>
       {todoList.map(todo => (
@@ -17,6 +22,7 @@ export const Todos: React.FC<Props> = ({ todoList, changeStatus }) => {
           title={todo.title}
           id={todo.id}
           changeStatus={changeStatus}
+          updateTodo={updateTodo}
         />
       ))}
     </div>

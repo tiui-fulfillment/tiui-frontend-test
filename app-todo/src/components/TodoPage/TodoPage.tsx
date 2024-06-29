@@ -20,12 +20,21 @@ export function TodoPage() {
     setTodoList(todoChange);
   };
 
+  const handleUpdate = (value: string, id: string) => {
+    const todoUpdate = todoList.map(todo => {
+      if (id === todo.id) todo.title = value;
+      return todo;
+    });
+    setTodoList(todoUpdate);
+  };
+
   return (
     <>
       <AddTodo addTodo={handleAddTodo} />
       <Todos
         todoList={todoList}
         changeStatus={handleChangeStatus}
+        updateTodo={handleUpdate}
       />
     </>
   );
