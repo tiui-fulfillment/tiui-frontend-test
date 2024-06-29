@@ -1,0 +1,146 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--color1: #DFD8BE; /*Blanco*/
+	--color2: #234358; /*Azul*/
+	--color3: #938B7B; /*Café*/
+	--color4: #546474; /*Gris*/
+	--color5: #92ABB4; /*Gris Claro*/
+	--color6: #9CB4BC; /*Gris más claro*/
+
+}
+
+body {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	max-width: 1200px;
+	margin: 40px auto;
+	display: flex;
+	justify-content: center;
+	background-color: var(--color4); 
+	color: var(--color1); 
+}
+
+.todolist {
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+	padding: 25px;
+	border-radius: 20px;
+	width: 700px;
+	background-color: var(--color2); 
+	color: var(--color1); 
+}
+
+h1 {
+	text-align: center;
+	color: var(--color1); 
+}
+
+.contador-todo {
+	text-align: center;
+	margin: 40px 0;
+	display: flex;
+	justify-content: space-around;
+	color: var(--color1); 
+}
+
+.contador-todo h3 {
+	font-weight: 500;
+	color: var(--color6); 
+}
+
+.contador-todo span {
+	color: var(--color5); 
+	font-weight: 700;
+	font-size: 24px;
+	margin-left: 10px;
+}
+
+ul {
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+ul li {
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+	background-color: var(--color4); 
+	padding: 10px;
+	border-radius: 10px;
+	color: var(--color1); 
+}
+
+ul li span {
+	overflow: hidden;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	color: var(--color1); 
+}
+
+ul li form {
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+}
+
+.input-update {
+	border: none;
+	font-weight: 500;
+	font-family: inherit;
+	font-size: 18px;
+	color: azure; 
+	width: 100%;
+	outline: none;
+	background-color: var(--color4); 
+}
+
+.container-done {
+	background-color: var(--color6); 
+	width: 24px;
+	height: 24px;
+	border-radius: 20px;
+	border: 2px solid var(--color6); 
+	cursor: pointer;
+}
+
+.container-done.active {
+	background-color: green 
+}
+
+.text-decoration-dashed {
+	text-decoration: line-through;
+	color:azure; 
+}
+
+form {
+	display: flex;
+	gap: 20px;
+}
+
+.add-todo h3 {
+	text-align: center;
+	margin-bottom: 40px;
+	font-size: 24px;
+	color: var(--color1); 
+}
+
+.addPendiente {
+	border: none;
+	outline: none;
+	padding: 10px 20px;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+	border-radius: 20px;
+	flex: 1;
+	font-family: inherit;
+	font-size: 17px;
+	color: var(--color3); 
+	background-color: var(--color5); 
+}
