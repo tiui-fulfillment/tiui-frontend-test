@@ -10,6 +10,8 @@ interface TaskRowProps {
   onToggleComplete: (taskId: number, isComplete: boolean) => void;
   onEditTask: (task: Task) => void;
   onDeleteTask: (taskId: number) => void;
+  onSelectClick: (taskId: number) => void;
+  isSelected: boolean;
 }
 
 const StatusBox: React.FC<{ isComplete: boolean }> = ({ isComplete }) => (
@@ -41,12 +43,6 @@ const TaskActions: React.FC<{
     <Tooltip title="Editar tarea">
       <IconButton
         color="inherit"
-        sx={{
-          color: 'grey',
-          '&:hover': {
-            color: 'primary.main',
-          },
-        }}
         onClick={onEditTask}
       >
         <EditIcon />
@@ -55,12 +51,6 @@ const TaskActions: React.FC<{
     <Tooltip title="Eliminar tarea">
       <IconButton
         color="inherit"
-        sx={{
-          color: 'grey',
-          '&:hover': {
-            color: 'secondary.main',
-          },
-        }}
         onClick={onDeleteTask}
       >
         <DeleteIcon />
@@ -69,7 +59,7 @@ const TaskActions: React.FC<{
   </div>
 );
 
-const TaskRow: React.FC<TaskRowProps> = ({ task, onToggleComplete, onEditTask, onDeleteTask }) => {
+const TaskRow: React.FC<TaskRowProps> = ({ task, onToggleComplete, onEditTask, onDeleteTask, onSelectClick, isSelected }) => {
   const handleToggleComplete = () => {
     onToggleComplete(task.id, !task.isComplete);
   };
@@ -80,7 +70,10 @@ const TaskRow: React.FC<TaskRowProps> = ({ task, onToggleComplete, onEditTask, o
     <TableRow key={task.id} className="task-row">
       <TableCell padding="checkbox">
         <Tooltip title="Seleccionar tarea">
-          <Checkbox />
+          <Checkbox
+            checked={isSelected}
+            onChange={() => onSelectClick(task.id)}
+          />
         </Tooltip>
       </TableCell>
       <TableCell className="task-cell">{task.task}</TableCell>

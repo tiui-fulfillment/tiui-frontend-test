@@ -19,6 +19,7 @@ export default function Home() {
   const [isComplete, setIsComplete] = useState<boolean>(false);
   const [filter, setFilter] = useState<string>('Todos');
   const [editingTask, setEditingTask] = useState<Task | null>(null);
+  const [selectedTasks, setSelectedTasks] = useState<number[]>([]);
 
   const addTask = () => {
     const taskError = isRequiredInput(task.text);
@@ -84,6 +85,54 @@ export default function Home() {
     return true;
   });
 
+  const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked) {
+      const newSelectedTasks = filteredTasks.map((task) => task.id);
+      setSelectedTasks(newSelectedTasks);
+      return;
+    }
+    setSelectedTasks([]);
+  };
+
+  const handleSelectClick = (taskId: number) => {
+    const selectedIndex = selectedTasks.indexOf(taskId);
+    let newSelectedTasks: number[] = [];
+
+    if (selectedIndex === -1) {
+      newSelectedTasks = newSelectedTasks.concat(selectedTasks, taskId);
+    } else if (selectedIndex === 0) {
+      newSelectedTasks = newSelectedTasks.concat(selectedTasks.slice(1));
+    } else if (selectedIndex === selectedTasks.length - 1) {
+      newSelectedTasks = newSelectedTasks.concat(selectedTasks.slice(0, -1));
+    } else if (selectedIndex > 0) {
+      newSelectedTasks = newSelectedTasks.concat(
+        selectedTasks.slice(0, selectedIndex),
+        selectedTasks.slice(selectedIndex + 1)
+      );
+    }
+
+    setSelectedTasks(newSelectedTasks);
+  };
+
+  const handleCompleteSelected = () => {
+    setTasks(tasks.map((task) => 
+      selectedTasks.includes(task.id) ? { ...task, isComplete: true } : task
+    ));
+    setSelectedTasks([]);
+  };
+
+  const handlePendingSelected = () => {
+    setTasks(tasks.map((task) => 
+      selectedTasks.includes(task.id) ? { ...task, isComplete: false } : task
+    ));
+    setSelectedTasks([]);
+  };
+
+  const handleDeleteSelected = () => {
+    setTasks(tasks.filter((task) => !selectedTasks.includes(task.id)));
+    setSelectedTasks([]);
+  };
+
   return (
     <Layout title="📋 To-Do List">
       <AddTask
@@ -105,6 +154,11 @@ export default function Home() {
             filterValue={filter}
             onFilterChange={setFilter}
             onPageChange={handleChangePage}
+            numSelected={selectedTasks.length}
+            onSelectAllClick={handleSelectAllClick}
+            onCompleteSelected={handleCompleteSelected}
+            onPendingSelected={handlePendingSelected}
+            onDeleteSelected={handleDeleteSelected}
           />
           <TaskList
             tasks={filteredTasks}
@@ -117,6 +171,8 @@ export default function Home() {
             }
             onEditTask={startEditTask}
             onDeleteTask={deleteTask}
+            onSelectClick={handleSelectClick}
+            selectedTasks={selectedTasks}
           />
         </Table>
       </TableContainer>

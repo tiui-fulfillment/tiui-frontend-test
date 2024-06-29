@@ -10,9 +10,11 @@ interface TaskListProps {
   onToggleComplete: (taskId: number, isComplete: boolean) => void;
   onEditTask: (task: Task) => void;
   onDeleteTask: (taskId: number) => void;
+  onSelectClick: (taskId: number) => void;
+  selectedTasks: number[];
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks, page, rowsPerPage, onToggleComplete, onEditTask, onDeleteTask }) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks, page, rowsPerPage, onToggleComplete, onEditTask, onDeleteTask, onSelectClick, selectedTasks }) => {
   return (
     <TableBody>
       {tasks.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((task) => (
@@ -22,6 +24,8 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, page, rowsPerPage, onToggleC
           onToggleComplete={onToggleComplete}
           onEditTask={onEditTask}
           onDeleteTask={onDeleteTask}
+          onSelectClick={onSelectClick}
+          isSelected={selectedTasks.includes(task.id)}
         />
       ))}
     </TableBody>
