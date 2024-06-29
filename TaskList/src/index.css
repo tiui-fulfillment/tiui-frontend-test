@@ -1,0 +1,18 @@
+.taskCard {
+    transition: all .5s;
+}
+
+.taskCard:hover {
+    transform: scale(1.05);
+    transition: all .4s;
+}
+
+.boton {
+    cursor: pointer;
+
+}
+
+.boton:hover {
+    transform: scale(1.2);
+    transition: all .4s;
+}
