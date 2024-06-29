@@ -15,19 +15,26 @@ En esta prueba, deberás crear una aplicación web sencilla utilizando React jun
 ## 1) Navegar hasta el directorio del proyecto (tiui-frontend-test/todo)
 
 ## 2) Instalar dependencias
+```
 - npm install
 - npx create-react-app
+```
 
 ## 3) Instala las dependencias
+```
 - npm install react-bootstrap bootstrap
 - npm install react-icons
 - npm install uuid
+```
 
 ## 4) Ejecuta el proyecto
+```
 - npm run start
+```
 
 ## Estructura del proyecto
 
+```
 tiui-frontend-test/todo/
 ├── public/
 ├── src/
@@ -49,7 +56,7 @@ tiui-frontend-test/todo/
 ├─ LICENSE
 ├─ PULL_REQUEST_TEMPLATE.md
 └─ README.md
-
+```
 Licencia
 Este proyecto está licenciado bajo la Licencia MIT.
 
