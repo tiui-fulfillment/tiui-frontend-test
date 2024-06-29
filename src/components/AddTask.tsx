@@ -39,7 +39,7 @@ export default function AddTask(params:AddTaskT) {
           alignSelf: 'flex-start', // Alinea el botón al inicio para mantener la misma altura
         }}
       >
-        Add
+        Agregar
       </Button>
     </Box>
   )
