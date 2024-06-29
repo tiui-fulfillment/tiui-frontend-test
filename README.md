@@ -1,35 +1,30 @@
-# Prueba Técnica - Desarrollador Full Stack Jr
+# React + TypeScript + Vite
 
-¡Bienvenido a la prueba técnica para el puesto de Desarrollador Full Stack Jr en Tiui Soluciones!
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Descripción
+Currently, two official plugins are available:
 
-En esta prueba, deberás crear una aplicación web sencilla utilizando React junto con Material-UI o Bootstrap. La aplicación será una lista de tareas (To-Do List) donde los usuarios puedan agregar, editar y eliminar tareas. Esta prueba nos permitirá evaluar tus habilidades en el desarrollo frontend, tu manejo de componentes y estilos, y tu capacidad para trabajar con tecnologías modernas.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Requisitos
+## Expanding the ESLint configuration
 
-### Funcionalidades
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-1. **Agregar Tareas:** El usuario debe poder agregar nuevas tareas a la lista.
-2. **Editar Tareas:** El usuario debe poder editar el contenido de una tarea existente.
-3. **Eliminar Tareas:** El usuario debe poder eliminar tareas de la lista.
-4. **Marcar Tareas como Completadas:** El usuario debe poder marcar y desmarcar tareas como completadas.
-5. **Filtros:** El usuario debe poder filtrar las tareas por todas, completadas y pendientes.
+- Configure the top-level `parserOptions` property like this:
 
-### Tecnologías a Utilizar
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-- **React:** Deberás utilizar React para construir la aplicación.
-- **Material-UI o Bootstrap:** Puedes elegir una de estas librerías para los estilos y componentes.
-
-### Criterios de Evaluación
-
-- **Funcionalidad:** La aplicación cumple con todos los requisitos funcionales.
-- **Código:** Calidad y estructura del código.
-- **Uso de Componentes:** Uso adecuado y eficiente de componentes de React.
-- **Estilos:** Uso adecuado de Material-UI o Bootstrap para el diseño y estilos.
-- **Creatividad:** Soluciones innovadoras y creativas en la implementación de la funcionalidad.
-
-## Instrucciones
-
-1. **Fork a este repositorio:**
-2. **Cuanto todo este listo, genera un PR a con tu solución**
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
