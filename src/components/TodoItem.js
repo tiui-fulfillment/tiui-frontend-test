@@ -60,7 +60,6 @@ export default function TodoItem ({ todo, remove, toggle, edit }) {
                         checkedIcon={<CheckCircleOutlineIcon />}
                         color='warning'
                     />)}
-                    
                 </ListItemIcon>
                 {editing ? (
                     <TextField
@@ -77,18 +76,22 @@ export default function TodoItem ({ todo, remove, toggle, edit }) {
                     <ListItemText id={labelId} primary={todo.text} />
                 )}
                 <IconButton onClick={editing ? handleEditSave : handleEditToggle}>
-                    {editing ? <CheckCircleOutlineIcon sx={{ color: '#4caf50' }} /> : <EditIcon sx={{ color: '#ff9100' }} />}
+                    {editing ? (
+                        <CheckCircleOutlineIcon sx={{ color: '#4caf50' }} />
+                    ) : (
+                        <EditIcon sx={{ color: '#ff9100' }} />
+                    )}
                 </IconButton>
-                {!editing && (
+                {!editing ? (
                     <IconButton onClick={removeTodo} edge="end" aria-label="delete">
                         <DeleteOutlineIcon sx={{ color: 'red' }} />
                     </IconButton>
-                )}
-                {editing && (
+                ) : (
                     <IconButton onClick={handleCancelEdit} edge="end" aria-label="cancel">
                         <DeleteOutlineIcon sx={{ color: 'grey' }} />
                     </IconButton>
                 )}
+
             </ListItemButton>
         </ListItem>
     );
