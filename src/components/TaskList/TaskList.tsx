@@ -8,15 +8,23 @@ interface TaskListProps {
   page: number;
   rowsPerPage: number;
   onToggleComplete: (taskId: number, isComplete: boolean) => void;
+  onEditTask: (task: Task) => void;
+  onDeleteTask: (taskId: number) => void;
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks, page, rowsPerPage, onToggleComplete }) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks, page, rowsPerPage, onToggleComplete, onEditTask, onDeleteTask }) => {
   return (
-        <TableBody>
-          {tasks.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((task) => (
-            <TaskRow key={task.id} task={task} onToggleComplete={onToggleComplete} />
-          ))}
-        </TableBody>
+    <TableBody>
+      {tasks.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((task) => (
+        <TaskRow
+          key={task.id}
+          task={task}
+          onToggleComplete={onToggleComplete}
+          onEditTask={onEditTask}
+          onDeleteTask={onDeleteTask}
+        />
+      ))}
+    </TableBody>
   );
 };
 

@@ -1,82 +1,101 @@
 import React from 'react';
-import { TableRow, TableCell, Checkbox, IconButton, Switch, Box } from '@mui/material';
+import { TableRow, TableCell, Checkbox, IconButton, Switch, Box, Tooltip } from '@mui/material';
 import { Task } from '@/types/task';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 interface TaskRowProps {
   task: Task;
   onToggleComplete: (taskId: number, isComplete: boolean) => void;
+  onEditTask: (task: Task) => void;
+  onDeleteTask: (taskId: number) => void;
 }
 
-const TaskRow: React.FC<TaskRowProps> = ({ task, onToggleComplete }) => {
+const StatusBox: React.FC<{ isComplete: boolean }> = ({ isComplete }) => (
+  <Box
+    sx={{
+      bgcolor: isComplete ? 'success.light' : 'grey.300',
+      color: isComplete ? 'white' : 'text.primary',
+      borderRadius: '4px',
+      padding: '2px 8px',
+      textAlign: 'center',
+      display: 'inline-block',
+    }}
+  >
+    {isComplete ? 'Completado' : 'Pendiente'}
+  </Box>
+);
+
+const TaskActions: React.FC<{
+  taskId: number;
+  isComplete: boolean;
+  onToggleComplete: () => void;
+  onEditTask: () => void;
+  onDeleteTask: () => void;
+}> = ({ taskId, isComplete, onToggleComplete, onEditTask, onDeleteTask }) => (
+  <div className="task-actions">
+    <Tooltip leaveTouchDelay={0} title={isComplete ? 'Marcar como Pendiente' : 'Marcar como Completado'}>
+      <Switch checked={isComplete} onChange={onToggleComplete} />
+    </Tooltip>
+    <Tooltip title="Editar tarea">
+      <IconButton
+        color="inherit"
+        sx={{
+          color: 'grey',
+          '&:hover': {
+            color: 'primary.main',
+          },
+        }}
+        onClick={onEditTask}
+      >
+        <EditIcon />
+      </IconButton>
+    </Tooltip>
+    <Tooltip title="Eliminar tarea">
+      <IconButton
+        color="inherit"
+        sx={{
+          color: 'grey',
+          '&:hover': {
+            color: 'secondary.main',
+          },
+        }}
+        onClick={onDeleteTask}
+      >
+        <DeleteIcon />
+      </IconButton>
+    </Tooltip>
+  </div>
+);
+
+const TaskRow: React.FC<TaskRowProps> = ({ task, onToggleComplete, onEditTask, onDeleteTask }) => {
   const handleToggleComplete = () => {
     onToggleComplete(task.id, !task.isComplete);
   };
 
-  const formattedDate = format(new Date(task.date), 'dd MMM yyyy, hh:mm a');
+  const formattedDate = format(parseISO(task.date), 'dd MMM yyyy, hh:mm a');
 
   return (
-    <TableRow
-      key={task.id}
-      sx={{
-        '&:hover': {
-          backgroundColor: '#f5f5f5',
-        },
-        height: '48px', // Fija la altura para evitar saltos
-        position: 'relative',
-      }}
-      className="task-row"
-    >
+    <TableRow key={task.id} className="task-row">
       <TableCell padding="checkbox">
-        <Checkbox />
+        <Tooltip title="Seleccionar tarea">
+          <Checkbox />
+        </Tooltip>
       </TableCell>
-      <TableCell sx={{ width: '100%' }}>{task.task}</TableCell>
-      <TableCell>
-        <Box
-          sx={{
-            bgcolor: task.isComplete ? 'success.light' : 'grey.300',
-            color: task.isComplete ? 'white' : 'text.primary',
-            borderRadius: '4px',
-            padding: '2px 8px',
-            textAlign: 'center',
-            display: 'inline-block',
-          }}
-        >
-          {task.isComplete ? 'Completado' : 'Pendiente'}
-        </Box>
+      <TableCell className="task-cell">{task.task}</TableCell>
+      <TableCell className="task-status-cell" align="center">
+        <StatusBox isComplete={task.isComplete} />
       </TableCell>
-      <TableCell className="task-date-cell" align='right'>
+      <TableCell className="task-date-cell" align="right">
         <span className="task-date">{formattedDate}</span>
-        <div className="task-actions">
-          <Switch
-            checked={task.isComplete}
-            onChange={handleToggleComplete}
-          />
-          <IconButton
-            color="inherit"
-            sx={{
-              color: 'grey',
-              '&:hover': {
-                color: 'primary.main',
-              },
-            }}
-          >
-            <EditIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            sx={{
-              color: 'grey',
-              '&:hover': {
-                color: 'secondary.main',
-              },
-            }}
-          >
-            <DeleteIcon />
-          </IconButton>
-        </div>
+        <TaskActions
+          taskId={task.id}
+          isComplete={task.isComplete}
+          onToggleComplete={handleToggleComplete}
+          onEditTask={() => onEditTask(task)}
+          onDeleteTask={() => onDeleteTask(task.id)}
+        />
       </TableCell>
     </TableRow>
   );

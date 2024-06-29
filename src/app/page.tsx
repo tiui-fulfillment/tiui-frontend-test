@@ -18,6 +18,7 @@ export default function Home() {
   const [rowsPerPage, setRowsPerPage] = useState<number>(10);
   const [isComplete, setIsComplete] = useState<boolean>(false);
   const [filter, setFilter] = useState<string>('Todos');
+  const [editingTask, setEditingTask] = useState<Task | null>(null);
 
   const addTask = () => {
     const taskError = isRequiredInput(task.text);
@@ -25,18 +26,42 @@ export default function Home() {
       setTask({ ...task, error: taskError });
       return;
     }
-  
-    const newTask = {
-      id: Date.now(),
-      task: task.text,
-      date: new Date().toISOString(), // Guardar fecha en formato ISO
-      isComplete: isComplete,
-    };
-    setTasks([newTask, ...tasks]);
+
+    if (editingTask) {
+      const updatedTasks = tasks.map((t) =>
+        t.id === editingTask.id ? { ...t, task: task.text, isComplete: isComplete } : t
+      );
+      setTasks(updatedTasks);
+      setEditingTask(null);
+    } else {
+      const newTask = {
+        id: Date.now(),
+        task: task.text,
+        date: new Date().toISOString(), // Guardar fecha en formato ISO
+        isComplete: isComplete,
+      };
+      setTasks([newTask, ...tasks]);
+    }
+    
     setTask({ text: '', error: '' });
     setIsComplete(false);
   };
-  
+
+  const startEditTask = (task: Task) => {
+    setTask({ text: task.task, error: '' });
+    setIsComplete(task.isComplete);
+    setEditingTask(task);
+  };
+
+  const cancelEdit = () => {
+    setTask({ text: '', error: '' });
+    setIsComplete(false);
+    setEditingTask(null);
+  };
+
+  const deleteTask = (taskId: number) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+  };
 
   const handleChangePage: OnPageChangeType = (event, page) => {
     setPage(page);
@@ -61,7 +86,13 @@ export default function Home() {
 
   return (
     <Layout title="📋 To-Do List">
-      <AddTask task={task} onChange={(e) => setTask({ text: e.target.value, error: '' })} addTask={addTask} />
+      <AddTask
+        task={task}
+        onChange={(e) => setTask({ text: e.target.value, error: '' })}
+        addTask={addTask}
+        editingTask={editingTask}
+        cancelEdit={cancelEdit}
+      />
       <TableContainer component={Paper} className="tableContainer">
         <Table size="small" aria-label="a dense table">
           <TableHeader
@@ -79,7 +110,13 @@ export default function Home() {
             tasks={filteredTasks}
             page={page}
             rowsPerPage={rowsPerPage}
-            onToggleComplete={handleToggleComplete}
+            onToggleComplete={(taskId, isComplete) =>
+              setTasks(tasks.map((task) =>
+                task.id === taskId ? { ...task, isComplete } : task
+              ))
+            }
+            onEditTask={startEditTask}
+            onDeleteTask={deleteTask}
           />
         </Table>
       </TableContainer>
