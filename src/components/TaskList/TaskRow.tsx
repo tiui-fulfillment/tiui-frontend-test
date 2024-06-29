@@ -43,6 +43,12 @@ const TaskActions: React.FC<{
     <Tooltip title="Editar tarea">
       <IconButton
         color="inherit"
+        sx={{
+          color: 'grey',
+          '&:hover': {
+            color: 'primary.main',
+          },
+        }}
         onClick={onEditTask}
       >
         <EditIcon />
@@ -51,6 +57,12 @@ const TaskActions: React.FC<{
     <Tooltip title="Eliminar tarea">
       <IconButton
         color="inherit"
+        sx={{
+          color: 'grey',
+          '&:hover': {
+            color: 'secondary.main',
+          },
+        }}
         onClick={onDeleteTask}
       >
         <DeleteIcon />

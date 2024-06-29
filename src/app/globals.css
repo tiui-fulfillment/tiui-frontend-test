@@ -44,9 +44,14 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
     background: white;
 }
+
 .tableContainer {
     flex: 1 1 auto;
     overflow-y: auto;
+}
+
+.tableHead th{
+    border: 10px solid var(--color-light-gray);
 }
 
 .input {
@@ -76,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .task-row {
-    height: 48px; /* Fija la altura para evitar saltos */
+    height: 48px;
     position: relative;
 }
 

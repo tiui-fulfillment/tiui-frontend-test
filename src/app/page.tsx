@@ -16,7 +16,6 @@ export default function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [task, setTask] = useState<InputTask>({ text: '', error: '' });
   const [rowsPerPage, setRowsPerPage] = useState<number>(10);
-  const [isComplete, setIsComplete] = useState<boolean>(false);
   const [filter, setFilter] = useState<string>('Todos');
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   const [selectedTasks, setSelectedTasks] = useState<number[]>([]);
@@ -30,7 +29,7 @@ export default function Home() {
 
     if (editingTask) {
       const updatedTasks = tasks.map((t) =>
-        t.id === editingTask.id ? { ...t, task: task.text, isComplete: isComplete } : t
+        t.id === editingTask.id ? { ...t, task: task.text } : t
       );
       setTasks(updatedTasks);
       setEditingTask(null);
@@ -39,24 +38,21 @@ export default function Home() {
         id: Date.now(),
         task: task.text,
         date: new Date().toISOString(), // Guardar fecha en formato ISO
-        isComplete: isComplete,
+        isComplete: false,
       };
       setTasks([newTask, ...tasks]);
     }
     
     setTask({ text: '', error: '' });
-    setIsComplete(false);
   };
 
   const startEditTask = (task: Task) => {
     setTask({ text: task.task, error: '' });
-    setIsComplete(task.isComplete);
     setEditingTask(task);
   };
 
   const cancelEdit = () => {
     setTask({ text: '', error: '' });
-    setIsComplete(false);
     setEditingTask(null);
   };
 
@@ -87,7 +83,9 @@ export default function Home() {
 
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelectedTasks = filteredTasks.map((task) => task.id);
+      const newSelectedTasks = filteredTasks
+        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+        .map((task) => task.id);
       setSelectedTasks(newSelectedTasks);
       return;
     }
@@ -133,6 +131,8 @@ export default function Home() {
     setSelectedTasks([]);
   };
 
+  const pageTasksCount = filteredTasks.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).length;
+
   return (
     <Layout title="📋 To-Do List">
       <AddTask
@@ -149,8 +149,6 @@ export default function Home() {
             currentPage={page}
             rowsPerPage={rowsPerPage}
             onRowsPerPageChange={handleChangeRowsPerPage}
-            isTaskComplete={isComplete}
-            onTaskCompleteChange={setIsComplete}
             filterValue={filter}
             onFilterChange={setFilter}
             onPageChange={handleChangePage}
@@ -159,6 +157,7 @@ export default function Home() {
             onCompleteSelected={handleCompleteSelected}
             onPendingSelected={handlePendingSelected}
             onDeleteSelected={handleDeleteSelected}
+            pageTasksCount={pageTasksCount}
           />
           <TaskList
             tasks={filteredTasks}
