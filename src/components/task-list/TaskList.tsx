@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { TaskItem } from "../task-item/TaskItem";
 import { Task } from "../../interfaces";
 
 interface Props {
@@ -9,14 +10,14 @@ export function TaskList({ tasks }: Props) {
   return (
     <Box
       sx={{
-        mt: 5,
+        my: 5,
         display: "flex",
         flexDirection: "column",
-        gap: 3,
+        gap: 2,
       }}
     >
       {tasks.map((task) => (
-        <div>{task.title}</div>
+        <TaskItem task={task} key={`task-${task.id}-of-the-task-list`} />
       ))}
     </Box>
   );

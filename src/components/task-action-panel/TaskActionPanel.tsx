@@ -40,6 +40,7 @@ export function TaskActionPanel() {
             sm: "320px",
             xs: "100%",
           },
+          background: "white",
         }}
         type="search"
         InputProps={{
@@ -57,7 +58,7 @@ export function TaskActionPanel() {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ minWidth: 200 }}>
+        <Box sx={{ minWidth: 200, background: "white" }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Mostrar</InputLabel>
             <Select
