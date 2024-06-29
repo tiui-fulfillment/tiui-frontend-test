@@ -1,0 +1,191 @@
+.App {
+  background-color: rgb(209, 209, 209);
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-body {
+  min-height: 100vh;
+  max-width: 1200px;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 1vmin);
+  color: black;
+  margin: auto;
+}
+
+.Main-container {
+  background-color: #e5e7eb;
+  width: 90%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  min-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
+}
+
+.Task-container {
+  padding: 2% 10%;
+}
+
+.Title-container {
+  background-color: #0a58ca;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.Title-text {
+  font-weight: bold;
+  padding: 2%;
+  color: whitesmoke;
+}
+
+.Add-task {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.Input-add {
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 1rem;
+  width: fit-content;
+  margin: 1rem 0.5rem 1rem 0;
+  vertical-align: middle;
+  flex-grow: 1;
+}
+
+.Btn-add {
+  display: flex;
+  align-items: center;
+}
+
+.Button-add {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.Filter-container {
+  margin: 1rem 0 0 0;
+}
+
+.TaskList-container {
+  margin-top: 5px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.TaskList-container::-webkit-scrollbar {
+  width: 15px;
+}
+
+.TaskList-container::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+
+.TaskList-container::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+  border: 3px solid #f1f1f1;
+}
+
+.TaskList-container::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.TaskItem {
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.TaskItem span {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.TaskItem .Task-check {
+  margin-right: 10px;
+}
+
+.Task-check {
+  display: inline-block;
+  min-width: 20px;
+  min-height: 20px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  border: 2px solid #2196F3;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.Task-check input[type="checkbox"] {
+  display: none;
+}
+
+.Task-check.checked {
+  background-color: #2196F3;
+}
+
+.Task-check.checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 8px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.TaskItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.TaskItem .Task-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.TaskItem .Task-check {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.TaskItem .Task-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.TaskItem .Task-buttons .btn {
+  margin-left: 5px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: dimgray;
+}

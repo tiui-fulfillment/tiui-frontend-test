@@ -1,0 +1,8 @@
+{
+    "tasks" : [
+        { "id": 1, "text": "Terminar proyecto", "completed": false },
+        { "id": 2, "text": "Agendar cita con cliente", "completed": false },
+        { "id": 3, "text": "Salir a caminar", "completed": true },
+        { "id": 4, "text": "Limpiar la casa", "completed": false }
+    ]
+}
