@@ -1,29 +1,46 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Col, Row } from 'react-bootstrap';
 import { globalContext } from '../context/GlobalContext';
 import { useContext } from 'react';
 
-const TaskCard = ({task}) => {
+const TaskCard = ({ task }) => {
 
-  const {deleteTask, updateTask, setTaskId} = useContext(globalContext)
+  const { deleteTask, updateTask, setTaskId } = useContext(globalContext)
   return (
-   <Card className='w-100 shadow-lg border-0 bg-secondary text-white'>
+    <Card className='w-100 shadow-lg border-0 bg-secondary text-white taskCard'>
+      {
+        task.complete ? <Card.Img width={28} height={28} src='/assets/complete.svg' className='mt-4'></Card.Img> :
+
+          <Card.Img width={28} height={28} src='/assets/pending.svg' className='mt-4'></Card.Img>
+      }
       <Card.Body>
-        <Card.Title className='mb-3'>{task.title}</Card.Title>
-        {
-          task.complete ? <Card.Subtitle className='bg-primary p-2'>Completada</Card.Subtitle> : <Card.Subtitle className='bg-success p-2'>Pendiente</Card.Subtitle>
-        }
-        
-        <Card.Text className='mt-3'>
+        <Card.Text className=''>
+          {task.title}
+        </Card.Text>
+        <Card.Text className='mt-3 mb-4'>
           {task.description}
         </Card.Text>
-        <Button variant='danger' className='mr-4' onClick={()=>deleteTask(task.id)}>Borrar</Button>
-        {
-          task.complete ? <Button variant='success' onClick={()=>updateTask(task.id)}>Tarea Pendiente</Button> : <Button variant='primary' onClick={()=>updateTask(task.id)}>Completar Tarea</Button> 
-        }
-        <Button variant='warning' className='ml-4' onClick={() => setTaskId(task.id)}>Editar Tarea</Button>
-        
+        <Row className="d-flex">
+          <Col>
+            {
+              task.complete ?
+                <Card.Img width={24} height={24} src='/assets/pending.svg' onClick={() => updateTask(task.id)} className='boton'></Card.Img> : <Card.Img width={24} height={24} src='/assets/complete.svg' onClick={() => updateTask(task.id)} className='boton'></Card.Img>
+            }
+          </Col>
+
+          <Col>
+            <Card.Img width={24} height={24} src='/assets/pen.svg' className='boton' onClick={() => setTaskId(task.id)}></Card.Img>
+          </Col>
+          <Col>
+            <Card.Img width={24} height={24} src='/assets/delete.svg' className='boton' onClick={() => deleteTask(task.id)}></Card.Img>
+          </Col>
+
+        </Row>
+
+
+
       </Card.Body>
+
     </Card>
 
   );
