@@ -1,12 +1,6 @@
-# Prueba Técnica - Desarrollador Full Stack Jr
+# Todo List App
 
-¡Bienvenido a la prueba técnica para el puesto de Desarrollador Full Stack Jr en Tiui Soluciones!
-
-## Descripción
-
-En esta prueba, deberás crear una aplicación web sencilla utilizando React junto con Material-UI o Bootstrap. La aplicación será una lista de tareas (To-Do List) donde los usuarios puedan agregar, editar y eliminar tareas. Esta prueba nos permitirá evaluar tus habilidades en el desarrollo frontend, tu manejo de componentes y estilos, y tu capacidad para trabajar con tecnologías modernas.
-
-## Requisitos
+Una simple aplicación de lista de tareas desarrollada con React y Material-UI.
 
 ### Funcionalidades
 
@@ -18,18 +12,17 @@ En esta prueba, deberás crear una aplicación web sencilla utilizando React jun
 
 ### Tecnologías a Utilizar
 
-- **React:** Deberás utilizar React para construir la aplicación.
-- **Material-UI o Bootstrap:** Puedes elegir una de estas librerías para los estilos y componentes.
+- **React:**
+- **Material-UI o Bootstrap:** 
 
-### Criterios de Evaluación
+## Ejecutar el Proyecto
 
-- **Funcionalidad:** La aplicación cumple con todos los requisitos funcionales.
-- **Código:** Calidad y estructura del código.
-- **Uso de Componentes:** Uso adecuado y eficiente de componentes de React.
-- **Estilos:** Uso adecuado de Material-UI o Bootstrap para el diseño y estilos.
-- **Creatividad:** Soluciones innovadoras y creativas en la implementación de la funcionalidad.
+1. **Clonar el Repositorio:**
 
-## Instrucciones
+2. **Instalar Dependencias:**
+    npm install
 
-1. **Fork a este repositorio:**
-2. **Cuanto todo este listo, genera un PR a con tu solución**
+3. **Ejecutar la Aplicación:**
+    npm start
+
+Esto abrirá la aplicación en tu navegador predeterminado.
