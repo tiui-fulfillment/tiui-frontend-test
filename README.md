@@ -39,7 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 Cree una API con funciones CRUD, si quieres utilizarla, al ejecutar en entorno de desarrollo la ruta es /api/todos para metodo GET y POST, para PUT y DELETE consulta el archivo Api.md en la carpeta /src/app/api/ ahi encontraras la descripcion completa del funcionamiento de la API
 
 ## Deploy de TODO APP
-La aplicacion funciona con base de datos en MongoDB si no quieres crear la conexion puedes visitar el deploy a produccion en Vercel, el cual subire en el siguiente commit.
+La aplicacion funciona con base de datos en MongoDB si no quieres crear la conexion puedes visitar el deploy a produccion en [Vercel](https://tiui-frontend-test-7ae161qq3-voyghas-projects.vercel.app/), en este enlace.
 
 ## Base de Datos MongoDB
 Esta aplicacion funciona con base de datos de MongoDB, descarga el repositorio y crea un archivo .env en la carpeta raiz de todo-app-next
