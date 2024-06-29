@@ -33,3 +33,27 @@ En esta prueba, deberás crear una aplicación web sencilla utilizando React jun
 
 1. **Fork a este repositorio:**
 2. **Cuanto todo este listo, genera un PR a con tu solución**
+
+## Instalación
+
+Para poder utilizar este proyecto hecho en react, es necesario que se tengan los paquetes instalados con el siguiente comando:
+
+
+```bash
+  npm install
+```
+
+Después, sera necesario instalar la librería para utilizar los íconos
+
+```bash
+  npm install react-icons --save
+```
+
+Por último para correr el proyecto solo es necesario teclear
+
+```bash
+npm start
+```
+
+>[!IMPORTANT]
+Es necesario resaltar que Bootstrap 5.4 está instalado mediante CDN en el archivo `public/index.html`, pero de ser necesario se puede ejecutar `npm install bootstrap@5.3.3 --save` para una mejor instalación
