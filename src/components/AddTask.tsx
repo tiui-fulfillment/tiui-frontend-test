@@ -22,6 +22,7 @@ export default function AddTask(params: AddTaskT) {
     cancelEdit
   } = params;
 
+  // Maneja la acción de presionar la tecla Enter en el campo de texto
   const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
@@ -32,28 +33,27 @@ export default function AddTask(params: AddTaskT) {
   return (
     <Box display="flex" alignItems="flex-start" mb={2}>
       <TextField
-        label="Agrega una nueva tarea"
+        label={editingTask ? "Editando una tarea" : "Agrega una nueva tarea"} // Cambia el label según el estado de edición
         value={task.text}
         size="small"
         error={!!task.error}
-        // helperText={task.error || ' '}
-        onChange={onChange}
+        onChange={onChange} // Maneja el cambio de texto
         fullWidth
         variant="outlined"
-        onKeyDown={handleKeyDown}
+        onKeyDown={handleKeyDown} // Maneja la tecla Enter para agregar/guardar
       />
       <Button
         variant="contained"
         color="primary"
         onClick={addTask}
-        startIcon={editingTask ? <SaveIcon /> : <AddIcon />}
+        startIcon={editingTask ? <SaveIcon /> : <AddIcon />} // Cambia el icono según el estado de edición
         style={{
           marginLeft: '10px',
           whiteSpace: 'nowrap',
           paddingRight: '25px',
           paddingLeft:'25px',
-          height: '40px', // Ajusta la altura según tus necesidades
-          alignSelf: 'flex-start', // Alinea el botón al inicio para mantener la misma altura
+          height: '40px', 
+          alignSelf: 'flex-start', 
         }}
       >
         {editingTask ? 'Guardar' : 'Agregar'}
@@ -62,15 +62,15 @@ export default function AddTask(params: AddTaskT) {
         <Button
           variant="contained"
           color="secondary"
-          onClick={cancelEdit}
+          onClick={cancelEdit} // Llama a la función para cancelar la edición
           startIcon={<CancelIcon />}
           style={{
             marginLeft: '10px',
             paddingRight: '25px',
             paddingLeft:'25px',
             whiteSpace: 'nowrap',
-            height: '40px', // Ajusta la altura según tus necesidades
-            alignSelf: 'flex-start', // Alinea el botón al inicio para mantener la misma altura
+            height: '40px', 
+            alignSelf: 'flex-start', 
           }}
         >
           Cancelar

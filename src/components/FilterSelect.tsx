@@ -35,7 +35,7 @@ const FilterSelect: React.FC<FilterSelectProps> = ({ value, onChange, options })
         endIcon={<ExpandMoreIcon />}
         onClick={handleClick}
       >
-        {value || 'Select Option'}
+        {value}
       </Button>
       <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
         {options.map((option, index) => (

@@ -16,11 +16,11 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onToggleComplete, onEditTask
   return (
     <TableBody>
       {tasks.length === 0 ? (
-        <TableRow>
+        <TableRow className="fullHeightRow">
           <TableCell colSpan={4}>
-            <Box display="flex" justifyContent="center" alignItems="center" height="100px">
-              <Typography variant="body1" color="textSecondary">
-                No hay tareas. Agrega una nueva tarea para comenzar.
+            <Box display="flex" justifyContent="center" alignItems="center" height="100%">
+              <Typography variant="body1" color="textSecondary" align='center'>
+                No hay tareas. <br /> Agrega una nueva tarea para comenzar.
               </Typography>
             </Box>
           </TableCell>
@@ -34,7 +34,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onToggleComplete, onEditTask
             onEditTask={onEditTask}
             onDeleteTask={onDeleteTask}
             onSelectClick={onSelectClick}
-            isSelected={selectedTasks.includes(task.id)}
+            isSelected={selectedTasks.includes(task.id)} // Verifica si la tarea está seleccionada
           />
         ))
       )}

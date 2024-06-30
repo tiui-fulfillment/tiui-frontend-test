@@ -3,7 +3,7 @@
 }
 
 html {
-    font-family: var(--font-inter);
+    font-family: var(--font-roboto);
 }
 
 body, main {
@@ -14,11 +14,6 @@ body, main {
 body {
     background-color: rgb(250, 250, 251);
 }
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-roboto-mono);
-}
-
 .container {
     height: 100vh;
     display: flex;
@@ -44,12 +39,22 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
     background: white;
 }
-
+   
 .tableContainer {
     flex: 1 1 auto;
     overflow-y: auto;
 }
 
+.tableContainerFull {
+    height: 100vh; /* O la altura deseada */
+    display: flex;
+    flex-direction: column;
+}
+
+.tableContainerFull table {
+    flex: 1;
+}
+    
 .tableHead th{
     border: 10px solid var(--color-light-gray);
 }
@@ -111,3 +116,8 @@ h1, h2, h3, h4, h5, h6 {
 .MuiTableRow-root:hover .task-date {
     display: none;
 }
+
+.full-height-row {
+    height: 100%;
+}
+  

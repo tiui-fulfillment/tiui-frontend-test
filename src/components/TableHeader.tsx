@@ -41,18 +41,13 @@ const TableHeader: React.FC<TableHeaderProps> = ({
   return (
     <TableHead>
       <TableRow>
-        <TableCell
-          colSpan={4}
-          sx={{
-            border: '1px solid rgba(224, 224, 224, 1)', // Agrega un borde a los TableCell
-          }}
-        >
+        <TableCell colSpan={4} >
           <Box sx={{ minHeight: '52px' }} display="flex" justifyContent="space-between" alignItems="center">
             <Box display="flex" alignItems="center">
               <Tooltip title="Seleccionar todos">
                 <Checkbox
-                  indeterminate={numSelected > 0 && numSelected < pageTasksCount}
-                  checked={pageTasksCount > 0 && numSelected === pageTasksCount}
+                  indeterminate={numSelected > 0 && numSelected < pageTasksCount} // Checkbox en estado indeterminado si solo algunas tareas están seleccionadas
+                  checked={pageTasksCount > 0 && numSelected === pageTasksCount} // Checkbox marcado si todas las tareas visibles están seleccionadas
                   onChange={onSelectAllClick}
                 />
               </Tooltip>
@@ -82,7 +77,7 @@ const TableHeader: React.FC<TableHeaderProps> = ({
               <TablePagination
                 rowsPerPageOptions={[10, 20, 50]}
                 component="div"
-                count={totalTasks}
+                count={totalTasks} // Utiliza el número de tareas filtradas
                 rowsPerPage={rowsPerPage}
                 page={currentPage}
                 onPageChange={onPageChange}

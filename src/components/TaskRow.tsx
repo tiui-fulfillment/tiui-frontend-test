@@ -76,7 +76,7 @@ const TaskRow: React.FC<TaskRowProps> = React.memo(({ task, onToggleComplete, on
     onToggleComplete(task.id, !task.isComplete);
   };
 
-  const formattedDate = format(parseISO(task.date), 'dd MMM yyyy, hh:mm a');
+  const formattedDate = format(parseISO(task.date), 'dd MMM yyyy, hh:mm a'); // Formatea la fecha
 
   return (
     <TableRow key={task.id} className="task-row">
