@@ -4,7 +4,7 @@
       "id": "1",
       "title": "Aprender a hablar con las plantas",
       "description": "Empezar con un 'Hola' podría funcionar.",
-      "isCompleted": false,
+      "isCompleted": true,
       "priority": "low",
       "createdAt": "Sáb 29 de Jun"
     },

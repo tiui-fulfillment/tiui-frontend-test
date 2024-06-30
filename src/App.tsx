@@ -5,7 +5,6 @@ import {
   TaskList,
   WelcomeTaskSummary,
 } from "./components";
-import { tasks } from "./mocks/tasks.json";
 
 function App() {
   return (
@@ -14,7 +13,7 @@ function App() {
       <Container maxWidth="xl" sx={{ mt: "100px" }}>
         <WelcomeTaskSummary />
         <TaskActionPanel />
-        <TaskList tasks={tasks} />
+        <TaskList />
       </Container>
     </>
   );

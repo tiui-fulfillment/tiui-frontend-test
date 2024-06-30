@@ -1,12 +1,9 @@
 import { Box } from "@mui/material";
 import { TaskItem } from "../task-item/TaskItem";
-import { Task } from "../../interfaces";
+import { useTask } from "../../custom-hooks/useTask";
 
-interface Props {
-  tasks: Task[];
-}
-
-export function TaskList({ tasks }: Props) {
+export function TaskList() {
+  const { taskState } = useTask();
   return (
     <Box
       sx={{
@@ -16,7 +13,7 @@ export function TaskList({ tasks }: Props) {
         gap: 2,
       }}
     >
-      {tasks.map((task) => (
+      {taskState.tasks.map((task) => (
         <TaskItem task={task} key={`task-${task.id}-of-the-task-list`} />
       ))}
     </Box>

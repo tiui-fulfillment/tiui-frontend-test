@@ -3,7 +3,6 @@ import {
   Box,
   TextField,
   InputAdornment,
-  Button,
   FormControl,
   InputLabel,
   MenuItem,
@@ -11,7 +10,7 @@ import {
   SelectChangeEvent,
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
-import AddIcon from "@mui/icons-material/Add";
+import { AddButton } from "../add-button/AddButton";
 
 export function TaskActionPanel() {
   const [filter, setFilter] = useState("");
@@ -61,13 +60,7 @@ export function TaskActionPanel() {
         <Box sx={{ minWidth: 200, background: "white" }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Mostrar</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={filter}
-              label="Mostrar"
-              onChange={handleChange}
-            >
+            <Select value={filter} label="Mostrar" onChange={handleChange}>
               <MenuItem value="all">Todas Las Tareas</MenuItem>
               <MenuItem value="done">Tareas Completadas</MenuItem>
               <MenuItem value="pending">Tareas Pendientes</MenuItem>
@@ -75,14 +68,7 @@ export function TaskActionPanel() {
           </FormControl>
         </Box>
 
-        <Button
-          variant="contained"
-          size="large"
-          endIcon={<AddIcon />}
-          sx={{ height: "56px" }}
-        >
-          Agregar Tarea
-        </Button>
+        <AddButton />
       </Box>
     </Box>
   );

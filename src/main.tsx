@@ -8,12 +8,15 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { muiTheme } from "./config/mui-theme";
+import { TasksProvider } from "./context/tasks.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <CssBaseline />
     <ThemeProvider theme={muiTheme}>
-      <App />
+      <TasksProvider>
+        <App />
+      </TasksProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
