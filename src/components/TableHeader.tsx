@@ -1,6 +1,6 @@
 import React from 'react';
 import { TableRow, TableCell, Checkbox, TablePagination, Box, TableHead, IconButton, Tooltip } from '@mui/material';
-import FilterSelect from './Filter/FilterSelect';
+import FilterSelect from './FilterSelect';
 import { TablePaginationProps } from '@mui/material/TablePagination';
 import { FILTERS } from '@/libs/Constants';
 import CheckIcon from '@mui/icons-material/Check';
@@ -41,12 +41,17 @@ const TableHeader: React.FC<TableHeaderProps> = ({
   return (
     <TableHead>
       <TableRow>
-        <TableCell colSpan={4}>
-          <Box sx={{minHeight:'52px'}} display="flex" justifyContent="space-between" alignItems="center">
+        <TableCell
+          colSpan={4}
+          sx={{
+            border: '1px solid rgba(224, 224, 224, 1)', // Agrega un borde a los TableCell
+          }}
+        >
+          <Box sx={{ minHeight: '52px' }} display="flex" justifyContent="space-between" alignItems="center">
             <Box display="flex" alignItems="center">
               <Tooltip title="Seleccionar todos">
                 <Checkbox
-                  indeterminate={numSelected === pageTasksCount && numSelected!= 0}
+                  indeterminate={numSelected > 0 && numSelected < pageTasksCount}
                   checked={pageTasksCount > 0 && numSelected === pageTasksCount}
                   onChange={onSelectAllClick}
                 />

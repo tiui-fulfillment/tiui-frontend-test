@@ -36,7 +36,7 @@ export default function AddTask(params: AddTaskT) {
         value={task.text}
         size="small"
         error={!!task.error}
-        helperText={task.error || ' '}
+        // helperText={task.error || ' '}
         onChange={onChange}
         fullWidth
         variant="outlined"

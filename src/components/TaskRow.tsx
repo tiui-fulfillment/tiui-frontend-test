@@ -71,7 +71,7 @@ const TaskActions: React.FC<{
   </div>
 );
 
-const TaskRow: React.FC<TaskRowProps> = ({ task, onToggleComplete, onEditTask, onDeleteTask, onSelectClick, isSelected }) => {
+const TaskRow: React.FC<TaskRowProps> = React.memo(({ task, onToggleComplete, onEditTask, onDeleteTask, onSelectClick, isSelected }) => {
   const handleToggleComplete = () => {
     onToggleComplete(task.id, !task.isComplete);
   };
@@ -104,6 +104,6 @@ const TaskRow: React.FC<TaskRowProps> = ({ task, onToggleComplete, onEditTask, o
       </TableCell>
     </TableRow>
   );
-};
+});
 
 export default TaskRow;
