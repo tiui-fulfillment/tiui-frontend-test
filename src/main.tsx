@@ -9,14 +9,17 @@ import "@fontsource/roboto/700.css";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { muiTheme } from "./config/mui-theme";
 import { TasksProvider } from "./context/tasks.tsx";
+import { FiltersProvider } from "./context/filters.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <CssBaseline />
     <ThemeProvider theme={muiTheme}>
-      <TasksProvider>
-        <App />
-      </TasksProvider>
+      <FiltersProvider>
+        <TasksProvider>
+          <App />
+        </TasksProvider>
+      </FiltersProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

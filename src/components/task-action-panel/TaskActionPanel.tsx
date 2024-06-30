@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Box,
   TextField,
@@ -11,12 +10,13 @@ import {
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import { AddButton } from "../add-button/AddButton";
+import { useFilters } from "../../custom-hooks/useFilters";
 
 export function TaskActionPanel() {
-  const [filter, setFilter] = useState("");
+  const { filters, setFilters } = useFilters();
 
   const handleChange = (event: SelectChangeEvent) => {
-    setFilter(event.target.value as string);
+    setFilters({ [event.target.name]: event.target.value as string });
   };
 
   return (
@@ -57,13 +57,33 @@ export function TaskActionPanel() {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ minWidth: 200, background: "white" }}>
-          <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Mostrar</InputLabel>
-            <Select value={filter} label="Mostrar" onChange={handleChange}>
-              <MenuItem value="all">Todas Las Tareas</MenuItem>
-              <MenuItem value="done">Tareas Completadas</MenuItem>
-              <MenuItem value="pending">Tareas Pendientes</MenuItem>
+        <Box sx={{ display: "flex", gap: 3 }}>
+          <FormControl fullWidth sx={{ background: "white" }}>
+            <InputLabel id="demo-simple-select-label">Estado</InputLabel>
+            <Select
+              value={filters.status}
+              label="Estado"
+              name="status"
+              onChange={handleChange}
+            >
+              <MenuItem value="all">Todas</MenuItem>
+              <MenuItem value="completed">Completadas</MenuItem>
+              <MenuItem value="pending">Pendientes</MenuItem>
+            </Select>
+          </FormControl>
+
+          <FormControl fullWidth sx={{ background: "white" }}>
+            <InputLabel id="demo-simple-select-label">Prioridad</InputLabel>
+            <Select
+              value={filters.priority}
+              label="Prioridad"
+              name="priority"
+              onChange={handleChange}
+            >
+              <MenuItem value="all">Todas</MenuItem>
+              <MenuItem value="low">Baja</MenuItem>
+              <MenuItem value="medium">Media</MenuItem>
+              <MenuItem value="high">Alta</MenuItem>
             </Select>
           </FormControl>
         </Box>
