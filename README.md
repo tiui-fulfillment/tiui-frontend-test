@@ -1,35 +1,70 @@
-# Prueba Técnica - Desarrollador Full Stack Jr
+# Getting Started with Create React App
 
-¡Bienvenido a la prueba técnica para el puesto de Desarrollador Full Stack Jr en Tiui Soluciones!
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Descripción
+## Available Scripts
 
-En esta prueba, deberás crear una aplicación web sencilla utilizando React junto con Material-UI o Bootstrap. La aplicación será una lista de tareas (To-Do List) donde los usuarios puedan agregar, editar y eliminar tareas. Esta prueba nos permitirá evaluar tus habilidades en el desarrollo frontend, tu manejo de componentes y estilos, y tu capacidad para trabajar con tecnologías modernas.
+In the project directory, you can run:
 
-## Requisitos
+### `npm start`
 
-### Funcionalidades
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-1. **Agregar Tareas:** El usuario debe poder agregar nuevas tareas a la lista.
-2. **Editar Tareas:** El usuario debe poder editar el contenido de una tarea existente.
-3. **Eliminar Tareas:** El usuario debe poder eliminar tareas de la lista.
-4. **Marcar Tareas como Completadas:** El usuario debe poder marcar y desmarcar tareas como completadas.
-5. **Filtros:** El usuario debe poder filtrar las tareas por todas, completadas y pendientes.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### Tecnologías a Utilizar
+### `npm test`
 
-- **React:** Deberás utilizar React para construir la aplicación.
-- **Material-UI o Bootstrap:** Puedes elegir una de estas librerías para los estilos y componentes.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Criterios de Evaluación
+### `npm run build`
 
-- **Funcionalidad:** La aplicación cumple con todos los requisitos funcionales.
-- **Código:** Calidad y estructura del código.
-- **Uso de Componentes:** Uso adecuado y eficiente de componentes de React.
-- **Estilos:** Uso adecuado de Material-UI o Bootstrap para el diseño y estilos.
-- **Creatividad:** Soluciones innovadoras y creativas en la implementación de la funcionalidad.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Instrucciones
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-1. **Fork a este repositorio:**
-2. **Cuanto todo este listo, genera un PR a con tu solución**
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
