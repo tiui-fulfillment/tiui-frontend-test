@@ -40,12 +40,7 @@ body {
     background: white;
 }
    
-.tableContainer {
-    flex: 1 1 auto;
-    overflow-y: auto;
-}
-
-.tableContainerFull {
+.tableContainer, .tableContainerFull {
     height: 100vh; /* O la altura deseada */
     display: flex;
     flex-direction: column;
