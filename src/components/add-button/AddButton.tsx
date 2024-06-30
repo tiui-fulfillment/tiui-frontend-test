@@ -15,13 +15,14 @@ import {
   InputLabel,
   useTheme,
   useMediaQuery,
+  Typography,
 } from "@mui/material";
-import { TransitionProps } from "@mui/material/transitions";
 import AddIcon from "@mui/icons-material/Add";
+import { TransitionProps } from "@mui/material/transitions";
 import { v4 as uuidv4 } from "uuid";
 
-import { Task } from "../../interfaces";
 import { useTask } from "../../custom-hooks/useTask";
+import { Task } from "../../interfaces";
 
 const Transition = forwardRef<
   unknown,
@@ -40,8 +41,8 @@ const initialTask: Task = {
 };
 
 export function AddButton() {
-  const [dialogToggle, setDialogToggle] = useState(false);
   const [task, setTask] = useState(initialTask);
+  const [dialogToggle, setDialogToggle] = useState(false);
   const theme = useTheme();
   const { createTask } = useTask();
 
@@ -84,7 +85,17 @@ export function AddButton() {
         sx={{ height: "56px" }}
         onClick={handleDialogToggle}
       >
-        Agregar Tarea
+        Agregar
+        <Typography
+          sx={{
+            display: {
+              xs: "none",
+              md: "block",
+            },
+          }}
+        >
+          Tarea
+        </Typography>
       </Button>
 
       <Dialog

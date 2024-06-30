@@ -37,7 +37,7 @@ export const styles = {
   navbar__accountDetails: {
     display: {
       xs: "none",
-      sm: "flex",
+      md: "flex",
     },
     flexDirection: "column",
     justifyContent: "center",
