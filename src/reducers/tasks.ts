@@ -17,6 +17,18 @@ export function taskReducer(state: TaskState, action: TaskAction): TaskState {
       return {
         tasks: state.tasks.filter((task) => task.id !== action.payload),
       };
+    case "TOGGLE_TASK":
+      return {
+        tasks: state.tasks.map((task) => {
+          if (task.id === action.payload) {
+            return {
+              ...task,
+              isCompleted: !task.isCompleted,
+            };
+          }
+          return task;
+        }),
+      };
     default:
       return state;
   }

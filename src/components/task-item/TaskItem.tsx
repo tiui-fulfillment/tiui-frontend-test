@@ -19,7 +19,7 @@ interface Props {
 
 export function TaskItem({ task }: Props) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const { deleteTask } = useTask();
+  const { deleteTask, toggleTask } = useTask();
 
   const open = Boolean(anchorEl);
   const { description, id, isCompleted, priority, title } = task;
@@ -37,7 +37,10 @@ export function TaskItem({ task }: Props) {
     handleClose();
   };
 
-  const handleToggle = () => {};
+  const handleToggle = () => {
+    console.log("cambia?");
+    toggleTask(id);
+  };
 
   return (
     <Box
