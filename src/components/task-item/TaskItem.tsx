@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Task } from "../../interfaces";
+import { useTask } from "../../custom-hooks/useTask";
 
 interface Props {
   task: Task;
@@ -18,16 +19,25 @@ interface Props {
 
 export function TaskItem({ task }: Props) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const { deleteTask } = useTask();
+
   const open = Boolean(anchorEl);
+  const { description, id, isCompleted, priority, title } = task;
+  const label = { inputProps: { "aria-label": "Checkbox Task" } };
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const { description, isCompleted, priority, title } = task;
 
-  const label = { inputProps: { "aria-label": "Checkbox Task" } };
+  const handleDelete = () => {
+    deleteTask(id);
+    handleClose();
+  };
+
+  const handleToggle = () => {};
 
   return (
     <Box
@@ -45,6 +55,7 @@ export function TaskItem({ task }: Props) {
           {...label}
           size="large"
           checked={isCompleted ? true : false}
+          onChange={handleToggle}
         />
       </Box>
       <Box
@@ -83,7 +94,7 @@ export function TaskItem({ task }: Props) {
               }}
             >
               <MenuItem onClick={handleClose}>Edit</MenuItem>
-              <MenuItem onClick={handleClose}>Delete</MenuItem>
+              <MenuItem onClick={handleDelete}>Delete</MenuItem>
             </Menu>
           </Box>
           <Typography sx={{ fontSize: "16px", color: "#666" }}>

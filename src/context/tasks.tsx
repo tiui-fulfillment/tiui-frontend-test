@@ -14,6 +14,7 @@ interface TaskState {
 export interface TaskContextType {
   taskState: TaskState;
   createTask: (newTask: Task) => void;
+  deleteTask: (id: string) => void;
 }
 
 const INITIAL_STATE: TaskState = { tasks: tasks };
@@ -21,6 +22,7 @@ const INITIAL_STATE: TaskState = { tasks: tasks };
 export const TasksContext = createContext<TaskContextType>({
   taskState: INITIAL_STATE,
   createTask: () => {},
+  deleteTask: () => {},
 });
 
 export function TasksProvider({ children }: TaskProviderProps) {
@@ -30,8 +32,12 @@ export function TasksProvider({ children }: TaskProviderProps) {
     dispatch({ type: "ADD_TASK", payload: newTask });
   };
 
+  const deleteTask = (id: string) => {
+    dispatch({ type: "DELETE_TASK", payload: id });
+  };
+
   return (
-    <TasksContext.Provider value={{ taskState, createTask }}>
+    <TasksContext.Provider value={{ taskState, createTask, deleteTask }}>
       {children}
     </TasksContext.Provider>
   );
