@@ -1,0 +1,116 @@
+.todo-container {
+  display: flex;
+  position: relative;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto 0 auto;
+  border-bottom: 1px solid #cecdcdde;
+
+  animation: aperture;
+  animation-duration: 600ms;
+  animation-timing-function: ease-out;
+
+  & p {
+    flex-grow: 1;
+    font-size: clamp(0.8rem, 4vw, 1rem);
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.new-todo {
+  max-width: 400px;
+  margin: 0 auto;
+  display: none;
+  padding: 0.5rem 0;
+  animation: view;
+  animation-duration: 700ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: inherit;
+}
+
+.view {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  & > div:first-child {
+    flex-grow: 1;
+  }
+}
+
+.todo-icons {
+  max-width: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  & > :first-child,
+  > :last-child {
+    transition: color 0.6s ease-out;
+  }
+
+  & > :first-child:hover {
+    color: #ffd740;
+  }
+
+  & > :last-child:hover {
+    color: #ff8a65;
+  }
+}
+
+.underline {
+  text-decoration: line-through;
+}
+
+.buttons-update {
+  display: flex;
+  gap: 1rem;
+}
+
+.buttons-update {
+  & > :first-child:hover,
+  > :last-child:hover {
+    color: #bdbdbd;
+  }
+}
+
+.deleteAnimation {
+  animation: deleteTodo;
+  animation-duration: 900ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: inherit;
+}
+
+@keyframes aperture {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes view {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes deleteTodo {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(80%);
+  }
+}

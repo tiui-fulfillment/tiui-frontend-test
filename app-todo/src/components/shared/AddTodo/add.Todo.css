@@ -1,0 +1,11 @@
+.add-todo {
+  max-height: 3rem;
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.clamp {
+  font-size: clamp(0.6rem, 4vw, 1rem);
+}
