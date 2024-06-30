@@ -8,14 +8,20 @@ interface FiltersContextType {
   filters: {
     status: string;
     priority: string;
+    search: string;
   };
-  setFilters: (filters: { status?: string; priority?: string }) => void;
+  setFilters: (filters: {
+    status?: string;
+    priority?: string;
+    search?: string;
+  }) => void;
 }
 
 const INITIAL_STATE: FiltersContextType = {
   filters: {
     status: "all",
     priority: "all",
+    search: "",
   },
   setFilters: () => {},
 };
@@ -23,11 +29,16 @@ const INITIAL_STATE: FiltersContextType = {
 export const FiltersContext = createContext<FiltersContextType>(INITIAL_STATE);
 
 export function FiltersProvider({ children }: TaskProviderProps) {
-  const [filters, setFilters] = useState({ status: "all", priority: "all" });
+  const [filters, setFilters] = useState({
+    status: "all",
+    priority: "all",
+    search: "",
+  });
 
   const handleSetFilters = (newFilters: {
     status?: string;
     priority?: string;
+    search?: string;
   }) => {
     setFilters((prevFilters) => ({
       ...prevFilters,

@@ -19,6 +19,10 @@ export function TaskActionPanel() {
     setFilters({ [event.target.name]: event.target.value as string });
   };
 
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFilters({ ...filters, search: event.target.value });
+  };
+
   return (
     <Box
       sx={{
@@ -42,6 +46,8 @@ export function TaskActionPanel() {
           background: "white",
         }}
         type="search"
+        value={filters.search}
+        onChange={handleSearchChange}
         InputProps={{
           startAdornment: (
             <InputAdornment position="end">

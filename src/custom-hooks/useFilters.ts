@@ -16,7 +16,12 @@ export function useFilters() {
       const priorityMatch =
         filters.priority === "all" || task.priority === filters.priority;
 
-      return statusMatch && priorityMatch;
+      const searchTerm = filters.search.toLowerCase();
+      const searchMatch =
+        task.title.toLowerCase().includes(searchTerm) ||
+        task.description.toLowerCase().includes(searchTerm);
+
+      return statusMatch && priorityMatch && searchMatch;
     });
   };
 
