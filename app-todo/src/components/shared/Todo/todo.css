@@ -14,7 +14,7 @@
 
   & p {
     flex-grow: 1;
-    font-size: clamp(1rem, 4vw, 1.2rem);
+    font-size: clamp(0.8rem, 4vw, 1rem);
     text-wrap: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -79,6 +79,13 @@
   }
 }
 
+.deleteAnimation {
+  animation: deleteTodo;
+  animation-duration: 900ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: inherit;
+}
+
 @keyframes aperture {
   from {
     transform: translateY(-100px);
@@ -96,5 +103,14 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes deleteTodo {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(80%);
   }
 }

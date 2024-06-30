@@ -4,5 +4,8 @@
   gap: 4rem;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
+}
+
+.clamp {
+  font-size: clamp(0.6rem, 4vw, 1rem);
 }

@@ -20,8 +20,12 @@ App desarrollado con clean-Architecture, incluyendo typescript en el proyecto pa
 
 ## Instrucciones para Ejecutar el Proyecto
 
-Por favor, proporciona una breve descripción de como ejeuctar el proyecto, plus si lo tienes en el README.md
+cd app-todo
+npm install
+npm run dev
+en la consola o + enter
 
 ## ¿Que resaltarias de tu proyecto?
 
-Por favor, proporciona una breve descripción de que resaltarias en tu solucion.
+separacion en del codigo para una mejor mantemiento y escabilidad del mismo,
+ademas añadimos zustand para evitar el drop drilling en los componentes

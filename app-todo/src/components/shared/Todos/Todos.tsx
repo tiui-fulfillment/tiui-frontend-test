@@ -1,30 +1,30 @@
-import { TodoList } from '../../types/todo';
+import { useTodoStore } from '../../../context/todoStore';
+import { FILTERS } from '../../types/todo.const';
 import { Todo } from '../Todo/Todo';
 import './Todos.css';
 
-interface Props {
-  todoList: TodoList;
-  changeStatus: (id: string) => void;
-  updateTodo: (value: string, id: string) => void;
-}
+export const Todos = () => {
+  const { todoList, todoUpdate, todoChangeStatus, todoDelete, filter } =
+    useTodoStore(state => state);
 
-export const Todos: React.FC<Props> = ({
-  todoList,
-  changeStatus,
-  updateTodo
-}) => {
+  const filterTodo =
+    filter !== FILTERS.ALL
+      ? todoList.filter(todo => todo.completed === filter)
+      : todoList;
+
   return (
-    <div className='container-todos'>
-      {todoList.map(todo => (
+    <section className='container-todos'>
+      {filterTodo.map(todo => (
         <Todo
           key={todo.id}
           completed={todo.completed}
           title={todo.title}
           id={todo.id}
-          changeStatus={changeStatus}
-          updateTodo={updateTodo}
+          changeStatus={todoChangeStatus}
+          updateTodo={todoUpdate}
+          todoDelete={todoDelete}
         />
       ))}
-    </div>
+    </section>
   );
 };
