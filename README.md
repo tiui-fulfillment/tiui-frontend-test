@@ -29,6 +29,9 @@ En esta prueba, deberás crear una aplicación web sencilla utilizando React jun
 - **Estilos:** Uso adecuado de Material-UI o Bootstrap para el diseño y estilos.
 - **Creatividad:** Soluciones innovadoras y creativas en la implementación de la funcionalidad.
 
+## Iniciar el proyecto:
+Para iniciar este proyecto Hay que descargar los archivos (clonando el repositorio) y ejecutar el comando "npm install". El archivo "package.json" ya contiene las dependencias necesarias. 
+
 ## Instrucciones
 
 1. **Fork a este repositorio:**
