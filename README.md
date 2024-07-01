@@ -113,6 +113,14 @@ En esta ruta estaran enlistadas todas las tareas con el status in process
 
 <img src="./public/capturas/ruta_in_process.png" alt="Editar" width="500"/>
 
+## Implementacion del Responsive
+El ultimo cambio es arreglar el responsive, si bien estoy utilizando Bootstrap y se adapta bien, algunos botones no se acomodan bien al 100%, por lo que decidi agregar algunas configuraciones extras en mi archivo de globals.css
+
+<img src="./public/capturas/MacBook.png" alt="Editar" width="500"/>
+
+<img src="./public/capturas/Ipad.png" alt="Editar" width="500"/>
+
+<img src="./public/capturas/mobile.png" alt="Editar" width="500"/>
 
 
 # Prueba Técnica - Desarrollador Full Stack Jr
