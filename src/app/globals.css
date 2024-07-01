@@ -1,0 +1,98 @@
+body {
+  background-color: #F0F0F0;
+}
+
+.cont-cards {
+  padding-top: 1rem;
+}
+
+.todo-card {
+  background-color: #1F2937;
+  margin: 1rem;
+  padding-left: 2rem;
+}
+
+.cont-btn {
+  padding-right: 5rem;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+@media(max-width:980px) {
+  .cont-btn {
+    padding-top: 1rem;
+    padding-right: 14rem;
+    padding-bottom: 1rem;
+  }
+  
+}
+
+.btn-actions {
+  height: 60px;
+  width: 100px;
+}
+
+.cont-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-form {
+  background-color: #1F2937;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  width: 700px;
+}
+
+.card-form label {
+  color: white;
+}
+
+@media(max-width:920px) {
+  .card-form {
+    width: 100%;
+  }
+}
+
+.form-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-btn-container .btn {
+  width: 200px;
+}
+
+.cont-info-task {
+  display: flex;
+  gap: 10px;
+}
+
+@media(max-width:980px) {
+  .cont-info-task {
+    display: grid;
+  }
+}
+
+.cont-badge-radio-btn {
+  display: flex;
+  gap: 5px;
+  font-size: 1.3rem;
+}
+
+.cont-badge-radio-btn .form-check-input {
+  width: 20px;
+}
+
+.cont-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.show-hide .form-check-input {
+  display: none;
+}
