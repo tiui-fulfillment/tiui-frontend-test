@@ -8,6 +8,34 @@ En esta prueba, deberás crear una aplicación web sencilla utilizando React jun
 
 ## Requisitos
 
+### Instalación
+
+Para instalar este repositorio en tu ordenador, sigue estos pasos:
+
+1. Clona este repositorio en tu ordenador:
+
+```bash
+git clone
+```
+
+2. Navegar a la carpeta del proyecto:
+
+```bash
+cd prueba-tecnica-fullstack-jr
+```
+
+3. Instalar las dependencias del proyecto:
+
+```bash
+npm install
+```
+
+4. Iniciar la aplicación en modo de desarrollo:
+
+```bash
+npm start
+```
+
 ### Funcionalidades
 
 1. **Agregar Tareas:** El usuario debe poder agregar nuevas tareas a la lista.
