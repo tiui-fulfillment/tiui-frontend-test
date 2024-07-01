@@ -1,0 +1,36 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Aprender a hablar con las plantas",
+      "description": "Empezar con un 'Hola' podría funcionar.",
+      "isCompleted": true,
+      "priority": "low",
+      "createdAt": "Sáb 29 de Jun"
+    },
+    {
+      "id": "2",
+      "title": "Encontrar un hobby",
+      "description": "Quizás algo menos demandante que aprender una framework de JS cada semana.",
+      "isCompleted": true,
+      "priority": "medium",
+      "createdAt": "Sáb 29 de Jun"
+    },
+    {
+      "id": "3",
+      "title": "Hacer una broma épica",
+      "description": "Algo memorable pero que no termine en la cárcel.",
+      "isCompleted": false,
+      "priority": "high",
+      "createdAt": "Sáb 29 de Jun"
+    },
+    {
+      "id": "4",
+      "title": "Conquistar el mundo",
+      "description": "Comenzar con algo pequeño, como el patio trasero.",
+      "isCompleted": false,
+      "priority": "low",
+      "createdAt": "Sáb 29 de Jun"
+    }
+  ]
+}
