@@ -92,6 +92,7 @@ export function AddButton() {
               xs: "none",
               md: "block",
             },
+            ml: "4px",
           }}
         >
           Tarea

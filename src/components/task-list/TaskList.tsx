@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
+import { useFilters } from "../../custom-hooks/useFilters";
 import { TaskItem } from "../task-item/TaskItem";
 import { useTask } from "../../custom-hooks/useTask";
-import { useFilters } from "../../custom-hooks/useFilters";
 
 export function TaskList() {
   const { taskState } = useTask();
