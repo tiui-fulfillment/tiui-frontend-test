@@ -33,3 +33,20 @@ En esta prueba, deberás crear una aplicación web sencilla utilizando React jun
 
 1. **Fork a este repositorio:**
 2. **Cuanto todo este listo, genera un PR a con tu solución**
+
+
+# TODOList
+## Instalación y ejecución local
+
+Asegúrate de tener Node.js y npm instalados en tu máquina.
+
+1. Instala las dependencias del proyecto:
+
+   ```bash
+   npm install
+
+2. Una vez instaladas las dependencias, puedes ejecutar la aplicación en modo desarrollo con el siguiente comando:
+   ```bash
+   npm run dev
+
+Puedes acceder a la aplicación en producción haciendo clic en [este enlace](https://todo-app-ericmi.netlify.app/).

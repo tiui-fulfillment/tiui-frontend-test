@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*** SWIPE LIST OVERRIDES **/
+.swipeable-list-item__leading-actions,
+.swipeable-list-item__trailing-actions {
+    @apply text-white text-base uppercase font-bold;
+}
+
+.swipeable-list-item__leading-actions {
+    @apply bg-blue-600;
+}
+
+.swipeable-list-item__trailing-actions {
+    @apply bg-red-500;
+}
+
+.swipeable-list .swipe-action {
+    @apply flex justify-center items-center
+}
