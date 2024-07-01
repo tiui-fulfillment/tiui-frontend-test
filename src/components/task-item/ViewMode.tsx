@@ -69,6 +69,7 @@ export function ViewMode({
           <Chip
             label={`Prioridad: ${task.priority}`}
             sx={{
+              fontSize: "12px",
               background:
                 task.priority === "low"
                   ? "rgba(139, 195, 74, 0.2)"
