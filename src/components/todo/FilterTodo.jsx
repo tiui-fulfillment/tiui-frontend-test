@@ -1,10 +1,9 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 export default function FilterTodo(props) {
-
-    const handleChange = (filter) => {
-        props.setTodoFilter(filter.target.value);
-    };
+  const handleChange = (filter) => {
+    props.setTodoFilter(filter.target.value);
+  };
 
   return (
     <FormControl fullWidth>

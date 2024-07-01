@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
@@ -58,23 +58,26 @@ export default function TodoList() {
         <Grid container spacing={1} sx={{ flexGrow: 1 }}>
           {filteredTodoList.length > 0 ? (
             filteredTodoList.map((tl, index) => (
-              <>
-              {
-                  index > 0 && <Divider component="li" sx={{ width: "100%" }} />
-                }
-                <Grid key={index} item sm={12} width={"100%"}>
+              <React.Fragment key={index}>
+                {index > 0 && (
+                  <Divider
+                    key={`divider-${index}`}
+                    component="li"
+                    sx={{ width: "100%" }}
+                  />
+                )}
+                <Grid key={`grid-${index}`} item sm={12} width={"100%"}>
                   <Todo
-                    key={index}
+                    key={`Todo-${index}`}
                     todo={tl}
                     todoList={todoList}
                     setTodoList={setTodoList}
                   />
                 </Grid>
-                
-              </>
+              </React.Fragment>
             ))
           ) : (
-            <Typography align="end" variant="h3">Sin resultados</Typography>
+            <Typography variant="h3">Sin resultados</Typography>
           )}
         </Grid>
       </Box>

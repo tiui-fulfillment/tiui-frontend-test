@@ -7,7 +7,6 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
 export default function FormTodo(props) {
-
   return (
     <>
       <Dialog
@@ -28,7 +27,8 @@ export default function FormTodo(props) {
         <DialogTitle>Todo</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Ingresa los datos para {props.action == "add" ? "Agregar" : "Actualizar"} el ToDo.
+            Ingresa los datos para{" "}
+            {props.action == "add" ? "Agregar" : "Actualizar"} el ToDo.
           </DialogContentText>
           <TextField
             autoFocus
@@ -45,7 +45,9 @@ export default function FormTodo(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={props.handleClose}>Cancelar</Button>
-          <Button type="submit">{props.action == "add" ? "Agregar" : "Actualizar"}</Button>
+          <Button type="submit">
+            {props.action == "add" ? "Agregar" : "Actualizar"}
+          </Button>
         </DialogActions>
       </Dialog>
     </>

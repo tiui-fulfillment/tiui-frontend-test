@@ -35,7 +35,7 @@ export default function AddTodo(props) {
       <Button variant="outlined" onClick={handleClickOpen}>
         Agregar Todo
       </Button>
-      <FormTodo 
+      <FormTodo
         open={open}
         action="add"
         handleClose={handleClose}
