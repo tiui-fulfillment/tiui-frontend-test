@@ -16,7 +16,7 @@ const ToDoList = ({ todos, handleOpen, setToDoEdit, markAsCompleted, deleteToDo 
             <Typography variant="body1" gutterBottom>Add a new ToDo</Typography>
             <SouthIcon />
           </Box> :
-          <Grid container spacing={ { xs: 2, md: 3 } } >
+          <Grid container spacing={ { xs: 2, md: 2, lg: 3 } } >
             {
               todos.map((todo) => (
                 <Grid item xs={ 12 } sm={ 6 } md={ 3 } key={ todo.id }>

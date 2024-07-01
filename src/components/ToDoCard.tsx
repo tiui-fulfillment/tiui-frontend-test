@@ -15,29 +15,23 @@ const ToDoCard = ({ todo, handleOpen, deleteTodo, setToDoEdit, markAsCompleted }
   return (
     <Card sx={ { maxWidth: '100%', position: 'relative' } }>
       <Badge
-        sx={ {
-          position: 'absolute',
-          top: 12,
-          right: 44,
-          '& .MuiBadge-badge': {
-            backgroundColor: todo.completed ? 'green' : '#1664C0',
-            color: 'white',
-            padding: '0 6px',
-            borderRadius: '4px',
-            fontSize: '0.75rem',
-          },
-        } }
+        sx={ { position: 'absolute', top: 12, right: 44, } }
+        color={ todo.completed ? 'success' : 'primary' }
         badgeContent={ todo.completed ? 'Completed' : 'Pending' }
       />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          { todo.title }
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          { todo.description }
-        </Typography>
 
-        <Box display="flex" justifyContent="space-between" marginTop={ 2 }>
+      <CardContent sx={ { minHeight: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'space-around' } }>
+        <Box marginY='15px'>
+          <Typography variant="h5" component="div">
+            { todo.title }
+          </Typography>
+
+          <Typography variant="body2" color="text.secondary">
+            { todo.description }
+          </Typography>
+        </Box>
+
+        <Box sx={ { display: 'flex', justifyContent: 'flex-end', marginTop: '10px' } }>
           <IconButton onClick={ handleEdit }>
             <EditIcon />
           </IconButton>
@@ -45,7 +39,6 @@ const ToDoCard = ({ todo, handleOpen, deleteTodo, setToDoEdit, markAsCompleted }
           <IconButton onClick={ () => markAsCompleted(todo.id) }>
             { todo.completed ? <CheckCircleIcon color="success" /> : <RadioButtonUncheckedIcon color="primary" /> }
           </IconButton>
-
           <IconButton color="error" onClick={ () => deleteTodo(todo.id) }>
             <DeleteIcon />
           </IconButton>
