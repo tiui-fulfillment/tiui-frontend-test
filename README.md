@@ -36,17 +36,22 @@ En esta prueba, deberás crear una aplicación web sencilla utilizando React jun
 
 ## Instrucciones para correr el proyecto
 
-Primero se debera clonar el repositorio
+Primero se debera clonar el repositorio con:
 ```bash
-$ git clone https://github.com/BR0MBEERE/tiui-frontend-test.git
+git clone https://github.com/BR0MBEERE/tiui-frontend-test.git
 ```
 
-Despues se deberan instalar las dependencias
+Te diriges a la carpeta del proyecto con:
 ```bash
-$ npm install
+cd .\tiui-frontend-test\
+```
+
+Despues se deberan instalar las dependencias con:
+```bash
+npm install
 ```
 
 Finalmente para correr el proyecto se usara el comando de:
 ```bash
-$ npm run dev
+npm run dev
 ```
